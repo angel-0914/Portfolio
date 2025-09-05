@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angel Mae Unabia - Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+    }
     .content-section {
       display: none;
     }
@@ -20,47 +24,61 @@
       background-color: #fbbf24;
       color: white;
     }
+    .overlay {
+      background: rgba(255, 255, 255, 0.95);
+    }
   </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="font-sans text-gray-800">
 
-  <!-- Header -->
-  <header class="bg-white shadow-md p-4 sticky top-0 z-10">
-    <h1 class="text-3xl font-bold text-gray-800">Angel Mae Unabia</h1>
-    <p class="text-gray-600">Passionate Web Developer</p>
+  <!-- Hero Section -->
+  <header class="flex flex-col items-center justify-center h-screen text-center p-4">
+    <img src="YOUR_IMAGE_URL_HERE" alt="Angel Mae Unabia" class="w-48 h-48 rounded-full mb-4 border-4 border-yellow-400 shadow-lg">
+    <h1 class="text-5xl font-bold text-white drop-shadow-lg">Angel Mae Unabia</h1>
+    <p class="text-2xl text-white mt-2 drop-shadow-lg">Passionate Web Developer</p>
+    <div class="mt-6 flex gap-4">
+      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('about')">About Me</button>
+      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('projects')">Projects</button>
+      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('skills')">Skills</button>
+      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('experience')">Experience</button>
+    </div>
   </header>
 
-  <!-- Navigation -->
-  <nav class="bg-gray-200 p-4 flex gap-4 justify-center">
-    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('about')">About Me</button>
-    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('projects')">Projects</button>
-    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('skills')">Skills</button>
-    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('experience')">Experience</button>
-  </nav>
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6 overlay rounded-lg shadow-lg -mt-20 mb-10">
 
-  <!-- Sections -->
-  <main class="max-w-5xl mx-auto p-6">
-    
     <!-- About Me -->
-    <section id="about" class="content-section active bg-white p-6 rounded shadow-md">
-      <h2 class="text-2xl font-bold mb-4">About Me</h2>
+    <section id="about" class="content-section active p-6">
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
       <p>I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. My specialization includes database design, backend development, and full-stack web applications.</p>
       <p class="mt-2">I am passionate about building efficient and user-friendly systems that solve real business problems, improve productivity, and create value for organizations.</p>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="content-section bg-white p-6 rounded shadow-md">
-      <h2 class="text-2xl font-bold mb-4">Projects</h2>
-      <ul class="list-disc ml-6 space-y-2">
-        <li><strong>Dianes Seafood House - Sales & Inventory System:</strong> Web-based system to manage sales, inventory, and generate reports efficiently.</li>
-        <li><strong>Sibonga NHS Library Management System:</strong> Developed a library system to manage books, borrowers, and reports.</li>
-        <li><strong>Enhancing Water Billing Information System for Guimbaliwan Association:</strong> Improved billing system for better record management and reporting.</li>
-      </ul>
+    <section id="projects" class="content-section p-6">
+      <h2 class="text-3xl font-bold mb-4">Projects</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="font-semibold text-xl mb-2">Dianes Seafood House - Sales & Inventory System</h3>
+          <img src="PROJECT1_SCREENSHOT_URL" alt="Dianes Seafood House Screenshot" class="rounded shadow-md w-full">
+          <p class="mt-2">Web-based system to manage sales, inventory, and generate reports efficiently.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-xl mb-2">Sibonga NHS Library Management System</h3>
+          <img src="PROJECT2_SCREENSHOT_URL" alt="Sibonga NHS Library Screenshot" class="rounded shadow-md w-full">
+          <p class="mt-2">Developed a library system to manage books, borrowers, and reports.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-xl mb-2">Enhancing Water Billing Information System for Guimbaliwan Association</h3>
+          <img src="PROJECT3_SCREENSHOT_URL" alt="Water Billing System Screenshot" class="rounded shadow-md w-full">
+          <p class="mt-2">Improved billing system for better record management and reporting.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="content-section bg-white p-6 rounded shadow-md">
-      <h2 class="text-2xl font-bold mb-4">Skills</h2>
+    <section id="skills" class="content-section p-6">
+      <h2 class="text-3xl font-bold mb-4">Skills</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center">
           <img src="https://img.icons8.com/color/48/000000/php.png" alt="PHP" class="skill-icon mb-2">
@@ -98,8 +116,8 @@
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="content-section bg-white p-6 rounded shadow-md">
-      <h2 class="text-2xl font-bold mb-4">Experience</h2>
+    <section id="experience" class="content-section p-6">
+      <h2 class="text-3xl font-bold mb-4">Experience</h2>
       
       <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
       <ul class="list-disc ml-6 mt-1 space-y-1">
@@ -124,17 +142,13 @@
 
   </main>
 
-  <!-- JavaScript -->
   <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => {
-        section.classList.remove('active');
-      });
+      sections.forEach(section => section.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
-
 </body>
 </html>
-
