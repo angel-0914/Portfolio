@@ -5,196 +5,202 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angel Mae Unabia - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(135deg, #000000, #1a1a1a);
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
       color: white;
-      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
     }
+    /* Floating profile pic */
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    /* Hide all content sections by default */
     .content-section { display: none; }
-    .active { display: block; }
-    .skill-icon { width: 60px; height: 60px; cursor: grab; }
-    #menu { display: none; }
-    #menu.show { display: flex; }
+    .active-section { display: block; }
   </style>
 </head>
-<body class="font-sans">
+<body class="overflow-x-hidden">
 
-  <!-- Header -->
-  <header class="flex items-center justify-between p-6">
-    <div class="text-2xl font-bold">MY PORTFOLIO</div>
-
-    <!-- Hamburger Menu -->
-    <div class="relative">
-      <button id="menu-btn" class="flex flex-col space-y-1 cursor-pointer">
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-      </button>
-      <nav id="menu" class="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex-col">
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('education')">Education</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('contact')">Contact Me</button>
-      </nav>
-    </div>
+  <!-- Navbar -->
+  <header class="flex justify-between items-center p-6 bg-black bg-opacity-60 fixed w-full top-0 z-50">
+    <h1 class="text-xl font-bold">MY PORTFOLIO</h1>
+    <button id="menu-toggle" class="md:hidden flex flex-col space-y-1">
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+    </button>
+    <nav id="menu" class="hidden md:flex space-x-6">
+      <a href="#" class="menu-link" data-target="home">Home</a>
+      <a href="#" class="menu-link" data-target="about">About Me</a>
+      <a href="#" class="menu-link" data-target="projects">Projects</a>
+      <a href="#" class="menu-link" data-target="skills">Skills</a>
+      <a href="#" class="menu-link" data-target="experience">Experience</a>
+      <a href="#" class="menu-link" data-target="education">Education</a>
+      <a href="#" class="menu-link" data-target="contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="flex flex-col md:flex-row items-center justify-center h-screen p-6 gap-8">
-    <!-- Left: Profile Picture -->
-    <div data-aos="fade-right">
-      <img src="images/angelprofile.JPG" alt="Angel Mae Unabia" class="w-64 h-64 shadow-lg">
-    </div>
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden flex-col bg-black bg-opacity-80 p-6 space-y-4 mt-16 fixed w-full h-screen overflow-y-auto z-40">
+    <a href="#" class="menu-link block" data-target="home">Home</a>
+    <a href="#" class="menu-link block" data-target="about">About Me</a>
+    <a href="#" class="menu-link block" data-target="projects">Projects</a>
+    <a href="#" class="menu-link block" data-target="skills">Skills</a>
+    <a href="#" class="menu-link block" data-target="experience">Experience</a>
+    <a href="#" class="menu-link block" data-target="education">Education</a>
+    <a href="#" class="menu-link block" data-target="contact">Contact</a>
+  </nav>
 
-    <!-- Right: Name & Title -->
-    <div class="text-center md:text-left space-y-2" data-aos="fade-left">
-      <p class="text-xl">Hello, I am</p>
-      <h1 class="text-5xl font-bold">Angel Mae <br> Unabia</h1>
-      <p class="text-2xl mt-2 text-yellow-400">Web Developer</p>
-    </div>
-  </section>
+  <!-- Sections -->
+  <main class="pt-24">
 
-  <!-- Main Content -->
-  <main class="max-w-6xl mx-auto p-6">
+    <!-- Home -->
+    <section id="home" class="content-section active-section h-screen flex flex-col md:flex-row items-center justify-center p-6 gap-8">
+      <div data-aos="fade-right">
+        <img src="images/angelprofile.JPG" 
+             alt="Angel Mae Unabia" 
+             class="w-64 h-64 rounded-full object-cover shadow-lg floating">
+      </div>
+      <div class="text-center md:text-left space-y-2" data-aos="fade-left">
+        <p class="text-xl">Hello, I am</p>
+        <h1 class="text-5xl font-bold">Angel Mae <br> Unabia</h1>
+        <p class="text-2xl mt-2 text-yellow-400">Passionate Web Developer</p>
+      </div>
+    </section>
 
-    <!-- About Me -->
-    <section id="about" class="content-section active" data-aos="fade-up">
+    <!-- About -->
+    <section id="about" class="content-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">About Me</h2>
-      <p>I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. My specialization includes database design, backend development, and full-stack web applications.</p>
-      <p class="mt-2">I am passionate about building efficient and user-friendly systems that solve real business problems, improve productivity, and create value for organizations.</p>
+      <p>
+        I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience 
+        in developing web-based systems such as sales and inventory, billing, and library management. 
+        My specialization includes database design, backend development, and full-stack web applications.
+      </p>
+      <p class="mt-4">
+        I am passionate about building efficient and user-friendly systems that solve real business problems, 
+        improve productivity, and create value for organizations.
+      </p>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="content-section" data-aos="fade-up">
+    <section id="projects" class="content-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6">Projects</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="p-4 bg-gray-900 rounded-lg shadow-lg" data-aos="zoom-in">
-          <div class="flex items-center space-x-2 mb-2">
-            <img src="https://img.icons8.com/fluency/48/restaurant.png" class="w-8 h-8">
-            <h3 class="font-semibold text-xl">Dianes Seafood House - Sales & Inventory</h3>
+      <div class="space-y-6">
+        <div class="flex items-center space-x-4">
+          <img src="https://img.icons8.com/color/48/project.png" class="w-10 h-10">
+          <div>
+            <h3 class="text-xl font-bold">Diane's Seafood House - Sales & Inventory System</h3>
+            <p>A web-based system for restaurants that manages sales and inventory efficiently.</p>
           </div>
-          <img src="images/project1.png" class="rounded shadow-md w-full">
-          <p class="mt-2">Web-based system to manage sales, inventory, and generate reports efficiently.</p>
         </div>
-
-        <div class="p-4 bg-gray-900 rounded-lg shadow-lg" data-aos="zoom-in">
-          <div class="flex items-center space-x-2 mb-2">
-            <img src="https://img.icons8.com/color/48/books.png" class="w-8 h-8">
-            <h3 class="font-semibold text-xl">Sibonga NHS Library Management</h3>
+        <div class="flex items-center space-x-4">
+          <img src="https://img.icons8.com/color/48/books.png" class="w-10 h-10">
+          <div>
+            <h3 class="text-xl font-bold">Sibonga NHS - Library Management System</h3>
+            <p>Helps automate book borrowing, returning, and inventory tracking for schools.</p>
           </div>
-          <img src="images/project2.png" class="rounded shadow-md w-full">
-          <p class="mt-2">Developed a library system to manage books, borrowers, and reports.</p>
         </div>
-
-        <div class="p-4 bg-gray-900 rounded-lg shadow-lg" data-aos="zoom-in">
-          <div class="flex items-center space-x-2 mb-2">
-            <img src="https://img.icons8.com/fluency/48/water.png" class="w-8 h-8">
-            <h3 class="font-semibold text-xl">Water Billing System</h3>
+        <div class="flex items-center space-x-4">
+          <img src="https://img.icons8.com/color/48/water.png" class="w-10 h-10">
+          <div>
+            <h3 class="text-xl font-bold">Enhancing Water Billing System - Guimbaliwan Association</h3>
+            <p>Tracks billing records and automates invoice generation for efficiency.</p>
           </div>
-          <img src="images/project3.png" class="rounded shadow-md w-full">
-          <p class="mt-2">Improved billing system for better record management and reporting.</p>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="content-section" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">Skills</h2>
-      <div class="flex flex-wrap gap-6">
-        <img src="https://img.icons8.com/color/48/php.png" alt="PHP" class="skill-icon" draggable="true">
-        <img src="https://img.icons8.com/fluency/48/laravel.png" alt="Laravel" class="skill-icon" draggable="true">
-        <img src="https://img.icons8.com/color/48/mysql-logo.png" alt="MySQL" class="skill-icon" draggable="true">
-        <img src="https://img.icons8.com/color/48/html-5.png" alt="HTML" class="skill-icon" draggable="true">
-        <img src="https://img.icons8.com/color/48/css3.png" alt="CSS" class="skill-icon" draggable="true">
-        <img src="https://img.icons8.com/color/48/javascript.png" alt="JavaScript" class="skill-icon" draggable="true">
-        <img src="https://img.icons8.com/glyph-neue/48/github.png" alt="GitHub" class="skill-icon" draggable="true">
-        <img src="https://img.icons8.com/color/48/api-settings.png" alt="API Integration" class="skill-icon" draggable="true">
+    <section id="skills" class="content-section p-8" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <img src="https://img.icons8.com/color/96/php.png" alt="PHP" class="mx-auto">
+        <img src="https://img.icons8.com/fluency/96/laravel.png" alt="Laravel" class="mx-auto">
+        <img src="https://img.icons8.com/color/96/mysql-logo.png" alt="MySQL" class="mx-auto">
+        <img src="https://img.icons8.com/color/96/html-5.png" alt="HTML" class="mx-auto">
+        <img src="https://img.icons8.com/color/96/css3.png" alt="CSS" class="mx-auto">
+        <img src="https://img.icons8.com/color/96/javascript.png" alt="JavaScript" class="mx-auto">
+        <img src="https://img.icons8.com/color/96/bootstrap.png" alt="Bootstrap" class="mx-auto">
+        <img src="https://img.icons8.com/color/96/github.png" alt="GitHub" class="mx-auto">
       </div>
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="content-section" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">Experience</h2>
-      
-      <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
-      <ul class="list-disc ml-6 mt-1 space-y-1">
+    <section id="experience" class="content-section p-8" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6">Experience</h2>
+      <h3 class="text-xl font-bold">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
+      <ul class="list-disc ml-6 mb-6">
         <li>Provided technical support for PC and printer troubleshooting</li>
-        <li>Assisted in encoding and managing school documents & configured and maintained LAN connections</li>
-        <li>Developed Library Management System as part of project contribution</li>
+        <li>Maintained LAN connections, assisted in document encoding</li>
+        <li>Developed Library Management System as project contribution</li>
       </ul>
 
-      <h3 class="font-semibold mt-4">Freelance Web Developer / Capstone Project (2021-current)</h3>
-      <ul class="list-disc ml-6 mt-1 space-y-1">
-        <li>Developed and deployed web systems</li>
-        <li>Designed responsive frontend interfaces using HTML, CSS, JavaScript</li>
-        <li>Built backend functionality with PHP, MySQL, Laravel</li>
-        <li>Collaborated with clients and project teams to meet requirements</li>
+      <h3 class="text-xl font-bold">Freelance Web Developer / Capstone Project (2021-current)</h3>
+      <ul class="list-disc ml-6">
+        <li>Developed and deployed web systems for clients</li>
+        <li>Built full-stack apps using PHP, MySQL, Laravel, and APIs</li>
+        <li>Designed responsive UIs with HTML, CSS, and JS</li>
       </ul>
     </section>
 
     <!-- Education -->
-    <section id="education" class="content-section" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">Education</h2>
-      <h3 class="font-semibold">Bachelor of Science in Information Technology</h3>
-      <p>Sibonga Community College – Graduated 2025</p>
-      <ul class="list-disc ml-6 mt-2 space-y-1">
-        <li>Specialized Software/Web Development</li>
-        <li>Capstone Project: Web-based Sales & Inventory System</li>
-      </ul>
+    <section id="education" class="content-section p-8" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6">Education</h2>
+      <p><strong>Bachelor of Science in Information Technology</strong></p>
+      <p>College of Technological Sciences – Cebu (2018 – 2022)</p>
     </section>
 
-    <!-- Contact Me -->
-    <section id="contact" class="content-section" data-aos="fade-up">
+    <!-- Contact -->
+    <section id="contact" class="content-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">Contact Me</h2>
-      <p class="mb-4">Interested in working together? Feel free to reach out!</p>
-      <div class="space-y-2">
-        <p><strong>Email:</strong> <a href="mailto:unabiaangelmaeg@gmail.com" class="text-yellow-400 hover:underline">angelmaeunabia@gmail.com</a></p>
+      <form action="https://formspree.io/f/yourFormID" method="POST" class="space-y-4 max-w-lg">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-gray-100 text-black">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded bg-gray-100 text-black">
+        <textarea name="message" rows="5" placeholder="Your Message" required class="w-full p-3 rounded bg-gray-100 text-black"></textarea>
+        <button type="submit" class="px-6 py-2 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-400">Send Message</button>
+      </form>
+      <div class="mt-6">
+        <p><strong>Email:</strong> <a href="mailto:angelmaeunabia@gmail.com" class="text-yellow-400 hover:underline">angelmaeunabia@gmail.com</a></p>
         <p><strong>Phone:</strong> +63 907 793 4408</p>
         <p><strong>Location:</strong> Carcar City, Cebu, Philippines</p>
       </div>
-      <div class="flex space-x-4 mt-4">
-        <a href="https://github.com/https://github.com/angel20014" target="_blank">
-          <img src="https://img.icons8.com/glyph-neue/48/github.png" class="w-8 h-8">
-        </a>
-        <a href="https://www.linkedin.com/in/https://www.linkedin.com/in/angel-mae-g-unabia-201312374/" target="_blank">
-          <img src="https://img.icons8.com/fluency/48/linkedin.png" class="w-8 h-8">
-        </a>
-      </div>
     </section>
-
   </main>
 
-  <!-- JavaScript -->
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Section toggling
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
-      document.getElementById('menu').classList.remove('show'); // Close menu after click
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    AOS.init();
 
-    // Hamburger menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    menuBtn.addEventListener('click', () => {
-      menu.classList.toggle('show');
+    // Toggle mobile menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
     });
 
-    // Initialize AOS animations
-    AOS.init({ duration: 1000 });
+    // Menu navigation - show clicked section only
+    const links = document.querySelectorAll(".menu-link");
+    const sections = document.querySelectorAll(".content-section");
 
-    // Drag & drop skills icons
-    const icons = document.querySelectorAll('.skill-icon');
-    icons.forEach(icon => {
-      icon.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('text/plain', null);
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = link.getAttribute("data-target");
+
+        sections.forEach(section => section.classList.remove("active-section"));
+        document.getElementById(target).classList.add("active-section");
+
+        // close mobile menu after click
+        mobileMenu.classList.add("hidden");
+        document.getElementById(target).scrollIntoView({ behavior: "smooth" });
       });
     });
   </script>
