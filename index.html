@@ -12,6 +12,7 @@
       color: white;
       font-family: Arial, sans-serif;
     }
+    /* Floating profile pic */
     .floating {
       animation: float 4s ease-in-out infinite;
     }
@@ -20,6 +21,7 @@
       50% { transform: translateY(-15px); }
       100% { transform: translateY(0px); }
     }
+    /* Sections hidden by default, except scroll-all mode */
     .content-section { display: none; }
     .active-section { display: block; }
   </style>
@@ -35,7 +37,7 @@
         <span class="block w-6 h-0.5 bg-white"></span>
         <span class="block w-6 h-0.5 bg-white"></span>
       </button>
-      <nav id="menu" class="hidden absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex-col">
+      <nav id="menu" class="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex-col hidden">
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="home">Home</button>
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="about">About Me</button>
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="projects">Projects</button>
@@ -43,7 +45,7 @@
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="experience">Experience</button>
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="education">Education</button>
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="contact">Contact</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="all">Show All</button>
+        <button class="px-4 py-2 bg-yellow-600 text-left menu-link" data-target="all">Show All</button>
       </nav>
     </div>
   </header>
@@ -66,7 +68,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="content-section p-8" data-aos="fade-up">
+    <section id="about" class="content-section active-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">About Me</h2>
       <p>
         I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience 
@@ -80,9 +82,11 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="content-section p-8" data-aos="fade-up">
+    <section id="projects" class="content-section active-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6">Projects</h2>
+
       <div class="space-y-4">
+        <!-- Project 1 -->
         <div class="bg-gray-900 rounded-lg shadow-lg p-4">
           <button onclick="toggleProject('project1')" class="flex items-center space-x-2 w-full text-left">
             <img src="https://img.icons8.com/fluency/48/restaurant.png" class="w-8 h-8">
@@ -93,6 +97,8 @@
             <p class="mt-2">Web-based system to manage sales, inventory, and generate reports efficiently.</p>
           </div>
         </div>
+
+        <!-- Project 2 -->
         <div class="bg-gray-900 rounded-lg shadow-lg p-4">
           <button onclick="toggleProject('project2')" class="flex items-center space-x-2 w-full text-left">
             <img src="https://img.icons8.com/color/48/books.png" class="w-8 h-8">
@@ -103,6 +109,8 @@
             <p class="mt-2">Developed a library system to manage books, borrowers, and reports.</p>
           </div>
         </div>
+
+        <!-- Project 3 -->
         <div class="bg-gray-900 rounded-lg shadow-lg p-4">
           <button onclick="toggleProject('project3')" class="flex items-center space-x-2 w-full text-left">
             <img src="https://img.icons8.com/fluency/48/water.png" class="w-8 h-8">
@@ -117,7 +125,7 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="content-section p-8" data-aos="fade-up">
+    <section id="skills" class="content-section active-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6">Skills</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <img src="https://img.icons8.com/color/96/php.png" alt="PHP" class="mx-auto">
@@ -132,7 +140,7 @@
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="content-section p-8" data-aos="fade-up">
+    <section id="experience" class="content-section active-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6">Experience</h2>
       <h3 class="text-xl font-bold">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
       <ul class="list-disc ml-6 mb-6">
@@ -140,6 +148,7 @@
         <li>Maintained LAN connections, assisted in document encoding</li>
         <li>Developed Library Management System as project contribution</li>
       </ul>
+
       <h3 class="text-xl font-bold">Freelance Web Developer / Capstone Project (2021-current)</h3>
       <ul class="list-disc ml-6">
         <li>Developed and deployed web systems for clients</li>
@@ -149,67 +158,77 @@
     </section>
 
     <!-- Education -->
-    <section id="education" class="content-section p-8" data-aos="fade-up">
+    <section id="education" class="content-section active-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6">Education</h2>
       <p><strong>Bachelor of Science in Information Technology major in Software Development</strong></p>
       <p>Sibonga Community College – (2025)</p>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="content-section p-8" data-aos="fade-up">
+    <!-- Contact Me -->
+    <section id="contact" class="content-section active-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">Contact Me</h2>
       <p class="mb-4">Interested in working together? Here’s how you can reach me:</p>
-      <p><strong>Email:</strong> <a href="mailto:unabiaangelmaeg@gmail.com" class="text-yellow-400 hover:underline">angelmaeunabia@gmail.com</a></p>
-      <p><strong>Phone:</strong> +63 907 793 4408</p>
-      <p><strong>Location:</strong> Carcar City, Cebu, Philippines</p>
+      <div class="space-y-2">
+        <p><strong>Email:</strong> 
+          <a href="mailto:unabiaangelmaeg@gmail.com" class="text-yellow-400 hover:underline">
+            angelmaeunabia@gmail.com
+          </a>
+        </p>
+        <p><strong>Phone:</strong> +63 907 793 4408</p>
+        <p><strong>Location:</strong> Carcar City, Cebu, Philippines</p>
+      </div>
       <div class="flex space-x-4 mt-4">
-        <a href="https://github.com/angel20014" target="_blank"><img src="https://img.icons8.com/glyph-neue/48/github.png" class="w-8 h-8"></a>
-        <a href="https://www.linkedin.com/in/angel-mae-g-unabia-201312374/" target="_blank"><img src="https://img.icons8.com/fluency/48/linkedin.png" class="w-8 h-8"></a>
+        <a href="https://github.com/angel20014" target="_blank">
+          <img src="https://img.icons8.com/glyph-neue/48/github.png" class="w-8 h-8">
+        </a>
+        <a href="https://www.linkedin.com/in/angel-mae-g-unabia-201312374/" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/linkedin.png" class="w-8 h-8">
+        </a>
       </div>
     </section>
 
   </main>
 
- <script>
-  AOS.init();
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
 
-  // Toggle top-right menu
-  const menuBtn = document.getElementById('menu-btn');
-  const menu = document.getElementById('menu');
-  menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
+    // Menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const sections = document.querySelectorAll(".content-section");
+    const links = document.querySelectorAll(".menu-link");
 
-  // Sections
-  const links = document.querySelectorAll(".menu-link");
-  const sections = document.querySelectorAll(".content-section");
-
-  // Menu navigation
-  links.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const target = link.getAttribute("data-target");
-
-      if (target === "all") {
-        // Show all sections again
-        sections.forEach(section => section.classList.add("active-section"));
-      } else {
-        // Show only clicked section
-        sections.forEach(section => section.classList.remove("active-section"));
-        document.getElementById(target).classList.add("active-section");
-        document.getElementById(target).scrollIntoView({ behavior: "smooth" });
-      }
-
-      menu.classList.add("hidden"); // close menu
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
     });
-  });
 
-  // Project toggle
-  function toggleProject(id) {
-    document.querySelectorAll('#projects div[id^="project"]').forEach(el => el.classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
-  }
-</script>
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = link.getAttribute("data-target");
 
+        if (target === "all") {
+          // Show all sections
+          sections.forEach(section => section.classList.add("active-section"));
+        } else {
+          // Hide all, show clicked
+          sections.forEach(section => section.classList.remove("active-section"));
+          document.getElementById(target).classList.add("active-section");
+          document.getElementById(target).scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Close menu
+        menu.classList.add("hidden");
+      });
+    });
+
+    // Project toggle
+    function toggleProject(id) {
+      document.querySelectorAll('#projects div[id^="project"]').forEach(el => el.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
