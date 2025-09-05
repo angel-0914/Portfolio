@@ -123,29 +123,56 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">Projects</h2>
-    <div class="flex mb-4">
-      <div class="project-btn" onclick="showProject(1)">1</div>
-      <div class="project-btn" onclick="showProject(2)">2</div>
-      <div class="project-btn" onclick="showProject(3)">3</div>
+<section id="projects" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6 text-center">Projects</h2>
+
+  <!-- Project Buttons -->
+  <div class="flex justify-center gap-4 mb-8">
+    <button onclick="showProject(1)" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600">1</button>
+    <button onclick="showProject(2)" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600">2</button>
+    <button onclick="showProject(3)" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600">3</button>
+  </div>
+
+  <!-- Project Cards -->
+  <div class="space-y-8">
+    <!-- Project 1 -->
+    <div id="project1" class="project-desc" data-aos="zoom-in">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-yellow-500 transition transform hover:-translate-y-2">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/restaurant.png" alt="Sales & Inventory Icon" class="w-10 h-10">
+          <h3 class="text-2xl font-semibold">Dianes Seafood House - Sales & Inventory System</h3>
+        </div>
+        <p class="mb-4">A web-based system for restaurants to manage sales, track inventory, and generate reports efficiently.</p>
+        <img src="images/project1.png" alt="Dianes Seafood House Screenshot" class="w-full rounded">
+      </div>
     </div>
-    <div id="project1" class="project-desc">
-      <h3 class="text-xl font-semibold mb-2">Dianes Seafood House - Sales & Inventory System</h3>
-      <img src="images/project1.png" class="w-full mb-2">
-      <p>A web-based system for restaurants to manage sales, inventory, automate tracking, and generate reports efficiently.</p>
+
+    <!-- Project 2 -->
+    <div id="project2" class="project-desc hidden-section" data-aos="zoom-in">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-yellow-500 transition transform hover:-translate-y-2">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/books.png" alt="Library System Icon" class="w-10 h-10">
+          <h3 class="text-2xl font-semibold">Sibonga NHS Library Management System</h3>
+        </div>
+        <p class="mb-4">A library management system to automate borrowing, returning, and cataloging of books for Sibonga NHS.</p>
+        <img src="images/project2.png" alt="Library System Screenshot" class="w-full rounded">
+      </div>
     </div>
-    <div id="project2" class="project-desc">
-      <h3 class="text-xl font-semibold mb-2">Sibonga NHS Library Management System</h3>
-      <img src="images/project2.png" class="w-full mb-2">
-      <p>A library system to track books, manage students’ borrowings, and generate reports automatically.</p>
+
+    <!-- Project 3 -->
+    <div id="project3" class="project-desc hidden-section" data-aos="zoom-in">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-yellow-500 transition transform hover:-translate-y-2">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/water.png" alt="Water Billing Icon" class="w-10 h-10">
+          <h3 class="text-2xl font-semibold">Enhancing Water Billing Information System</h3>
+        </div>
+        <p class="mb-4">A billing system developed for Guimbaliwan Association to simplify water billing and payment tracking.</p>
+        <img src="images/project3.png" alt="Water Billing System Screenshot" class="w-full rounded">
+      </div>
     </div>
-    <div id="project3" class="project-desc">
-      <h3 class="text-xl font-semibold mb-2">Enhancing Water Billing Information System</h3>
-      <img src="images/project3.png" class="w-full mb-2">
-      <p>Developed for Guimbaliwan Association to improve billing accuracy and provide user-friendly dashboards.</p>
-    </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Skills -->
   <section id="skills" data-aos="fade-up">
