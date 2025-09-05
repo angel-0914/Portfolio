@@ -43,6 +43,7 @@
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="experience">Experience</button>
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="education">Education</button>
         <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="contact">Contact</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="all">Show All</button>
       </nav>
     </div>
   </header>
@@ -169,37 +170,46 @@
 
   </main>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
+ <script>
+  AOS.init();
 
-    // Toggle top-right menu
-    const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    menuBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
+  // Toggle top-right menu
+  const menuBtn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
 
-    // Show only clicked section
-    const links = document.querySelectorAll(".menu-link");
-    const sections = document.querySelectorAll(".content-section");
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = link.getAttribute("data-target");
+  // Sections
+  const links = document.querySelectorAll(".menu-link");
+  const sections = document.querySelectorAll(".content-section");
+
+  // Menu navigation
+  links.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = link.getAttribute("data-target");
+
+      if (target === "all") {
+        // Show all sections again
+        sections.forEach(section => section.classList.add("active-section"));
+      } else {
+        // Show only clicked section
         sections.forEach(section => section.classList.remove("active-section"));
         document.getElementById(target).classList.add("active-section");
-        menu.classList.add("hidden"); // close menu
         document.getElementById(target).scrollIntoView({ behavior: "smooth" });
-      });
-    });
+      }
 
-    // Project toggle
-    function toggleProject(id) {
-      document.querySelectorAll('#projects div[id^="project"]').forEach(el => el.classList.add('hidden'));
-      document.getElementById(id).classList.remove('hidden');
-    }
-  </script>
+      menu.classList.add("hidden"); // close menu
+    });
+  });
+
+  // Project toggle
+  function toggleProject(id) {
+    document.querySelectorAll('#projects div[id^="project"]').forEach(el => el.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+  }
+</script>
+
 </body>
 </html>
