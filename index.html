@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angel Mae Unabia - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AOS Animation Library -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <style>
     body {
@@ -14,7 +13,6 @@
     }
     .skill-icon { width: 50px; height: 50px; }
 
-    /* Slide-in menu drawer */
     #menu {
       position: fixed;
       top: 0;
@@ -30,14 +28,27 @@
     }
     #menu.show { right: 0; }
 
-    /* Section hidden by default for menu click */
     .hidden-section { display: none; }
 
-    /* Optional highlight for clicked section */
-    .highlighted {
-      outline: 2px solid yellow;
-      border-radius: 8px;
+    /* Circular and bigger profile */
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
     }
+
+    /* Project buttons */
+    .project-btn {
+      cursor: pointer;
+      background-color: #1f1f1f;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      transition: background 0.3s;
+    }
+    .project-btn:hover { background-color: #facc15; color: black; }
+
+    .project-desc { display: none; margin-top: 1rem; }
   </style>
 </head>
 <body class="font-sans">
@@ -45,8 +56,6 @@
   <!-- Header -->
   <header class="flex items-center justify-between p-6 relative">
     <div class="text-2xl font-bold">MY PORTFOLIO</div>
-
-    <!-- Hamburger Menu -->
     <button id="hamburger" class="flex flex-col gap-1 w-6 h-6 cursor-pointer z-50 md:hidden">
       <span class="block h-0.5 bg-white"></span>
       <span class="block h-0.5 bg-white"></span>
@@ -62,7 +71,7 @@
     </nav>
   </header>
 
-  <!-- Mobile Slide-in Menu -->
+  <!-- Mobile Menu -->
   <nav id="menu" class="flex flex-col space-y-4 px-4 md:hidden">
     <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
     <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
@@ -72,14 +81,13 @@
 
   <!-- Hero Section -->
   <section class="flex flex-col md:flex-row items-center justify-center h-screen p-6 gap-8">
-    <!-- Profile Picture -->
-    <img src="images/profile.png" alt="Angel Mae Unabia" class="w-64 h-64" data-aos="fade-right">
+    <img src="images/profile.png" alt="Angel Mae Unabia" class="profile-pic" data-aos="fade-right">
 
-    <!-- Name & Title -->
     <div class="text-center md:text-left space-y-2" data-aos="fade-left">
       <p class="text-xl">Hello, I am</p>
       <h1 class="text-5xl font-bold">Angel Mae <br> Unabia</h1>
       <p class="text-2xl mt-2 text-yellow-400">Web Developer</p>
+      <p class="mt-2 text-lg text-gray-300">Passionate about coding and developing web systems that provide real solutions.</p>
     </div>
   </section>
 
@@ -96,19 +104,28 @@
     <!-- Projects -->
     <section id="projects" class="p-6 bg-gray-900 rounded shadow-md" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">Projects</h2>
-      <div class="space-y-8">
-        <div data-aos="fade-up">
-          <h3 class="font-semibold text-xl mb-2">Dianes Seafood House - Sales & Inventory System</h3>
-          <img src="images/project1.png" alt="Dianes Seafood House Screenshot" class="w-full">
-        </div>
-        <div data-aos="fade-up">
-          <h3 class="font-semibold text-xl mb-2">Sibonga NHS Library Management System</h3>
-          <img src="images/project2.png" alt="Sibonga NHS Library Screenshot" class="w-full">
-        </div>
-        <div data-aos="fade-up">
-          <h3 class="font-semibold text-xl mb-2">Enhancing Water Billing Information System for Guimbaliwan Association</h3>
-          <img src="images/project3.png" alt="Water Billing System Screenshot" class="w-full">
-        </div>
+      <!-- Project Buttons -->
+      <div class="flex gap-4 mb-4">
+        <div class="project-btn" onclick="showProject(1)">1</div>
+        <div class="project-btn" onclick="showProject(2)">2</div>
+        <div class="project-btn" onclick="showProject(3)">3</div>
+      </div>
+
+      <!-- Project Descriptions -->
+      <div id="project1" class="project-desc">
+        <h3 class="font-semibold text-xl mb-2">Dianes Seafood House - Sales & Inventory System</h3>
+        <img src="images/project1.png" class="w-full mb-2">
+        <p>A web-based system for restaurants to manage sales, inventory, automate tracking, and generate reports efficiently.</p>
+      </div>
+      <div id="project2" class="project-desc">
+        <h3 class="font-semibold text-xl mb-2">Sibonga NHS Library Management System</h3>
+        <img src="images/project2.png" class="w-full mb-2">
+        <p>A library system to track books, manage students’ borrowings, and generate reports automatically.</p>
+      </div>
+      <div id="project3" class="project-desc">
+        <h3 class="font-semibold text-xl mb-2">Enhancing Water Billing Information System</h3>
+        <img src="images/project3.png" class="w-full mb-2">
+        <p>Developed for Guimbaliwan Association to improve billing accuracy and provide user-friendly dashboards.</p>
       </div>
     </section>
 
@@ -117,35 +134,35 @@
       <h2 class="text-3xl font-bold mb-4">Skills</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/php.png" alt="PHP" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/color/48/000000/php.png" class="skill-icon mb-2">
           <span>PHP</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/laravel.png" alt="Laravel" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/color/48/000000/laravel.png" class="skill-icon mb-2">
           <span>Laravel</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" class="skill-icon mb-2">
           <span>MySQL</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/color/48/000000/html-5.png" class="skill-icon mb-2">
           <span>HTML</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/color/48/000000/css3.png" class="skill-icon mb-2">
           <span>CSS / Tailwind</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/color/48/000000/javascript.png" class="skill-icon mb-2">
           <span>JavaScript</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/ios-glyphs/48/000000/github.png" alt="GitHub" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/ios-glyphs/48/000000/github.png" class="skill-icon mb-2">
           <span>GitHub</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/api-settings.png" alt="API Integration" class="skill-icon mb-2">
+          <img src="https://img.icons8.com/color/48/000000/api-settings.png" class="skill-icon mb-2">
           <span>API Integration</span>
         </div>
       </div>
@@ -164,20 +181,9 @@
         <li>Developed Library Management System as part of project contribution</li>
         <li>Handled inventory of IT equipment and recorded asset movements</li>
       </ul>
-
-      <h3 class="font-semibold mt-4">Freelance Web Developer / Capstone Project (2021-current)</h3>
-      <ul class="list-disc ml-6 mt-1 space-y-1">
-        <li>Developed and deployed web systems</li>
-        <li>Designed and implemented responsive frontend interfaces using HTML, CSS, JavaScript</li>
-        <li>Built and maintained backend functionality using PHP, MySQL, API integration, Laravel</li>
-        <li>Collaborated with clients and project teams to meet requirements and deadlines</li>
-        <li>Managed full project lifecycle from planning to deployment</li>
-      </ul>
     </section>
-
   </main>
 
-  <!-- JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
@@ -185,17 +191,19 @@
     const hamburger = document.getElementById('hamburger');
     const menu = document.getElementById('menu');
 
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('show');
-    });
+    hamburger.addEventListener('click', () => menu.classList.toggle('show'));
 
     function showSection(sectionId) {
-      // Hide all sections
       document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden-section'));
-      // Show only clicked section
       document.getElementById(sectionId).classList.remove('hidden-section');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      menu.classList.remove('show'); // hide menu on mobile after click
+      menu.classList.remove('show');
+    }
+
+    function showProject(num) {
+      document.querySelectorAll('.project-desc').forEach(desc => desc.style.display = 'none');
+      document.getElementById('project' + num).style.display = 'block';
+      document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
