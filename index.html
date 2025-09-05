@@ -1,296 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angel Mae Unabia - Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  
-<style>
-  body {
-    background: linear-gradient(135deg, #000000, #1a1a1a);
-    color: white;
-    margin: 0;
-    font-family: sans-serif;
-  }
-
-  /* Profile Picture Animation */
-  .profile-pic {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-    animation: floatZoom 6s ease-in-out infinite;
-  }
-  @keyframes floatZoom {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-15px) scale(1.05); }
-  }
-
-  /* Skills floating animation */
-  .skill-icon {
-    width: 50px;
-    height: 50px;
-    animation: floatSkill 4s ease-in-out infinite alternate;
-  }
-  @keyframes floatSkill {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-  }
-
-  #menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    max-width: 250px;
-    height: 100vh;
-    background-color: #1f1f1f;
-    flex-direction: column;
-    padding-top: 6rem;
-    transition: right 0.3s ease-in-out;
-    z-index: 50;
-  }
-  #menu.show { right: 0; }
-
-  .hidden-section { display: none; }
-
-  .project-btn {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    margin-right: 0.5rem;
-    background-color: #1f1f1f;
-    color: white;
-    border-radius: 0.25rem;
-    transition: background 0.3s;
-  }
-  .project-btn:hover { background-color: #facc15; color: black; }
-
-  .project-desc { display: none; margin-top: 1rem; }
-
-  #menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 70%;
-  max-width: 250px;
-  height: 100vh;
-  background-color: #1f1f1f;
-  flex-direction: column;
-  padding-top: 6rem;
-  transition: right 0.3s ease-in-out;
-  z-index: 50;
-}
-#menu.show {
-  right: 0;
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Mae Unabia - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: white;
+      scroll-behavior: smooth;
+    }
+    .content-section { display: none; }
+    .active { display: block; }
+    .skill-icon { width: 60px; height: 60px; cursor: grab; }
+    #menu { display: none; }
+    #menu.show { display: flex; }
+  </style>
 </head>
-<body>
+<body class="font-sans">
 
-<!-- Header -->
-<header class="flex items-center justify-between p-6 relative">
-  <span class="text-2xl font-bold">MY PORTFOLIO</span>
-  <button id="hamburger" class="flex flex-col gap-1 w-6 h-6 cursor-pointer md:hidden z-50">
-    <span class="block h-0.5 bg-white"></span>
-    <span class="block h-0.5 bg-white"></span>
-    <span class="block h-0.5 bg-white"></span>
-  </button>
-  <nav class="hidden md:flex gap-6">
-    <button class="hover:text-yellow-500" onclick="showSection('about')">About Me</button>
-    <button class="hover:text-yellow-500" onclick="showSection('projects')">Projects</button>
-    <button class="hover:text-yellow-500" onclick="showSection('skills')">Skills</button>
-    <button class="hover:text-yellow-500" onclick="showSection('experience')">Experience</button>
-  </nav>
-</header>
+  <!-- Header -->
+  <header class="flex items-center justify-between p-6">
+    <div class="text-2xl font-bold">MY PORTFOLIO</div>
 
-<!-- Mobile Menu -->
-<nav id="menu" class="flex flex-col space-y-4 px-4 md:hidden">
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
-</nav>
+    <!-- Hamburger Menu -->
+    <div class="relative">
+      <button id="menu-btn" class="flex flex-col space-y-1 cursor-pointer">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+      <nav id="menu" class="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex-col">
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('education')">Education</button>
+      </nav>
+    </div>
+  </header>
 
-<!-- Hero Section -->
-<section class="flex flex-col items-center justify-center h-screen gap-4" data-aos="fade-up">
-  <img src="images/profile.png" alt="Angel Mae Unabia" class="profile-pic" data-aos="fade-right">
-  <p class="text-xl" data-aos="fade-left">Hello, I am</p>
-  <h1 class="text-5xl font-bold text-center" data-aos="fade-left">Angel Mae <br> Unabia</h1>
-  <p class="text-2xl mt-2 text-yellow-400" data-aos="fade-left">Web Developer</p>
-  <p class="mt-2 text-lg text-gray-300 text-center" data-aos="fade-left">Passionate about coding and developing web systems that provide real solutions.</p>
-</section>
-
-<!-- Intro Section -->
-<section class="p-6 text-center max-w-3xl mx-auto" data-aos="fade-up">
-  <h2 class="text-3xl font-bold mb-4">Welcome to My Portfolio!</h2>
-  <p>I specialize in creating modern, responsive, and efficient web applications. My work focuses on turning real-world challenges into scalable web-based solutions. Explore my projects, skills, and experiences below to learn more about what I can bring to your team.</p>
-</section>
-
-<!-- Main Content -->
-<main class="space-y-12 p-6 max-w-5xl mx-auto">
-
-  <!-- About Me -->
-  <section id="about" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">About Me</h2>
-    <p>I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. My specialization includes database design, backend development, and full-stack web applications.</p>
-   
-  </section>
-
-  <!-- Projects -->
-<section id="projects" data-aos="fade-up">
-  <h2 class="text-3xl font-bold mb-6 text-center">Projects</h2>
-
-  <!-- Project Buttons -->
-  <div class="flex justify-center gap-4 mb-8">
-    <button onclick="showProject(1)" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600">1</button>
-    <button onclick="showProject(2)" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600">2</button>
-    <button onclick="showProject(3)" class="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600">3</button>
-  </div>
-
-  <!-- Project Cards -->
-  <div class="space-y-8">
-    <!-- Project 1 -->
-    <div id="project1" class="project-desc" data-aos="zoom-in">
-      <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-yellow-500 transition transform hover:-translate-y-2">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/restaurant.png" alt="Sales & Inventory Icon" class="w-10 h-10">
-          <h3 class="text-2xl font-semibold">Dianes Seafood House - Sales & Inventory System</h3>
-        </div>
-        <p class="mb-4">A web-based system for restaurants to manage sales, track inventory, and generate reports efficiently.</p>
-        <img src="images/project1.png" alt="Dianes Seafood House Screenshot" class="w-full rounded">
-      </div>
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center justify-center h-screen p-6 gap-8">
+    <!-- Left: Profile Picture -->
+    <div data-aos="fade-right">
+      <img src="images/angelprofile.JPG" alt="Angel Mae Unabia" class="w-64 h-64 shadow-lg">
     </div>
 
-    <!-- Project 2 -->
-    <div id="project2" class="project-desc hidden-section" data-aos="zoom-in">
-      <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-yellow-500 transition transform hover:-translate-y-2">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/books.png" alt="Library System Icon" class="w-10 h-10">
-          <h3 class="text-2xl font-semibold">Sibonga NHS Library Management System</h3>
-        </div>
-        <p class="mb-4">A library management system to automate borrowing, returning, and cataloging of books for Sibonga NHS.</p>
-        <img src="images/project2.png" alt="Library System Screenshot" class="w-full rounded">
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div id="project3" class="project-desc hidden-section" data-aos="zoom-in">
-      <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-yellow-500 transition transform hover:-translate-y-2">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/water.png" alt="Water Billing Icon" class="w-10 h-10">
-          <h3 class="text-2xl font-semibold">Enhancing Water Billing Information System</h3>
-        </div>
-        <p class="mb-4">A billing system developed for Guimbaliwan Association to simplify water billing and payment tracking.</p>
-        <img src="images/project3.png" alt="Water Billing System Screenshot" class="w-full rounded">
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Skills -->
-  <section id="skills" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">Skills</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="flex flex-col items-center"><img src="https://img.icons8.com/color/48/000000/php.png" class="skill-icon mb-2"><span>PHP</span></div>
-      <div class="flex flex-col items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg" class="skill-icon mb-2"><span>Laravel</span></div>
-      <div class="flex flex-col items-center"><img src="https://img.icons8.com/color/48/000000/mysql-logo.png" class="skill-icon mb-2"><span>MySQL</span></div>
-      <div class="flex flex-col items-center"><img src="https://img.icons8.com/color/48/000000/html-5.png" class="skill-icon mb-2"><span>HTML</span></div>
-      <div class="flex flex-col items-center"><img src="https://img.icons8.com/color/48/000000/css3.png" class="skill-icon mb-2"><span>CSS / Tailwind</span></div>
-      <div class="flex flex-col items-center"><img src="https://img.icons8.com/color/48/000000/javascript.png" class="skill-icon mb-2"><span>JavaScript</span></div>
-      <div class="flex flex-col items-center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="skill-icon mb-2"><span>GitHub</span></div>
-      <div class="flex flex-col items-center"><img src="https://img.icons8.com/color/48/000000/api-settings.png" class="skill-icon mb-2"><span>API Integration</span></div>
+    <!-- Right: Name & Title -->
+    <div class="text-center md:text-left space-y-2" data-aos="fade-left">
+      <p class="text-xl">Hello, I am</p>
+      <h1 class="text-5xl font-bold">Angel Mae <br> Unabia</h1>
+      <p class="text-2xl mt-2 text-yellow-400">Web Developer</p>
     </div>
   </section>
 
-  
-  <!-- Experience -->
-  <section id="experience" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">Experience</h2>
-    <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
-    <ul class="list-disc ml-6 mt-1 space-y-1">
-      <li>Provided technical support for PC and printer troubleshooting</li>
-      <li>Assisted in encoding and managing school documents & configured and maintained LAN connections</li>
-      <li>Document filing and records organization (physical and digital)</li>
-      <li>Handled confidential and academic documents with accuracy</li>
-      <li>Supported software and system installation and updates</li>
-      <li>Developed Library Management System as part of project contribution</li>
-      <li>Handled inventory of IT equipment and recorded asset movements</li>
-    </ul>
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto p-6">
 
-     <!-- Freelance Experience -->
-  <h3 class="font-semibold mt-6">Freelance Web Developer / Capstone Project (2021 - Current)</h3>
-  <ul class="list-disc ml-6 mt-1 space-y-1">
-    <li>Developed and deployed web systems</li>
-    <li>Designed and implemented responsive frontend interfaces using HTML, CSS, JavaScript</li>
-    <li>Built and maintained backend functionality using PHP, MySQL, API integration, Laravel</li>
-    <li>Collaborated with clients and project teams to meet requirements and deadlines</li>
-    <li>Managed full project lifecycle from planning to deployment</li>
-  </ul>
-  </section>
+    <!-- About Me -->
+    <section id="about" class="content-section active" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <p>I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. My specialization includes database design, backend development, and full-stack web applications.</p>
+      <p class="mt-2">I am passionate about building efficient and user-friendly systems that solve real business problems, improve productivity, and create value for organizations.</p>
+    </section>
 
-</main>
+    <!-- Projects -->
+    <section id="projects" class="content-section" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-4 bg-gray-900 rounded-lg shadow-lg" data-aos="zoom-in">
+          <div class="flex items-center space-x-2 mb-2">
+            <img src="https://img.icons8.com/fluency/48/restaurant.png" class="w-8 h-8">
+            <h3 class="font-semibold text-xl">Dianes Seafood House - Sales & Inventory</h3>
+          </div>
+          <img src="images/project1.png" class="rounded shadow-md w-full">
+          <p class="mt-2">Web-based system to manage sales, inventory, and generate reports efficiently.</p>
+        </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({ duration: 800, once: true });
+        <div class="p-4 bg-gray-900 rounded-lg shadow-lg" data-aos="zoom-in">
+          <div class="flex items-center space-x-2 mb-2">
+            <img src="https://img.icons8.com/color/48/books.png" class="w-8 h-8">
+            <h3 class="font-semibold text-xl">Sibonga NHS Library Management</h3>
+          </div>
+          <img src="images/project2.png" class="rounded shadow-md w-full">
+          <p class="mt-2">Developed a library system to manage books, borrowers, and reports.</p>
+        </div>
 
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-  hamburger.addEventListener('click', () => menu.classList.toggle('show'));
+        <div class="p-4 bg-gray-900 rounded-lg shadow-lg" data-aos="zoom-in">
+          <div class="flex items-center space-x-2 mb-2">
+            <img src="https://img.icons8.com/fluency/48/water.png" class="w-8 h-8">
+            <h3 class="font-semibold text-xl">Water Billing System</h3>
+          </div>
+          <img src="images/project3.png" class="rounded shadow-md w-full">
+          <p class="mt-2">Improved billing system for better record management and reporting.</p>
+        </div>
+      </div>
+    </section>
 
-  function showSection(id) {
-    document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden-section'));
-    document.getElementById(id).classList.remove('hidden-section');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    menu.classList.remove('show');
-  }
+    <!-- Skills -->
+    <section id="skills" class="content-section" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4">Skills</h2>
+      <div class="flex flex-wrap gap-6">
+        <img src="https://img.icons8.com/color/48/php.png" alt="PHP" class="skill-icon" draggable="true">
+        <img src="https://img.icons8.com/fluency/48/laravel.png" alt="Laravel" class="skill-icon" draggable="true">
+        <img src="https://img.icons8.com/color/48/mysql-logo.png" alt="MySQL" class="skill-icon" draggable="true">
+        <img src="https://img.icons8.com/color/48/html-5.png" alt="HTML" class="skill-icon" draggable="true">
+        <img src="https://img.icons8.com/color/48/css3.png" alt="CSS" class="skill-icon" draggable="true">
+        <img src="https://img.icons8.com/color/48/javascript.png" alt="JavaScript" class="skill-icon" draggable="true">
+        <img src="https://img.icons8.com/glyph-neue/48/github.png" alt="GitHub" class="skill-icon" draggable="true">
+        <img src="https://img.icons8.com/color/48/api-settings.png" alt="API Integration" class="skill-icon" draggable="true">
+      </div>
+    </section>
 
-  function showProject(num) {
-    document.querySelectorAll('.project-desc').forEach(desc => desc.style.display = 'none');
-    document.getElementById('project' + num).style.display = 'block';
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
+    <!-- Experience -->
+    <section id="experience" class="content-section" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4">Experience</h2>
+      
+      <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
+      <ul class="list-disc ml-6 mt-1 space-y-1">
+        <li>Provided technical support for PC and printer troubleshooting</li>
+        <li>Assisted in encoding and managing school documents & configured and maintained LAN connections</li>
+        <li>Developed Library Management System as part of project contribution</li>
+      </ul>
 
+      <h3 class="font-semibold mt-4">Freelance Web Developer / Capstone Project (2021-current)</h3>
+      <ul class="list-disc ml-6 mt-1 space-y-1">
+        <li>Developed and deployed web systems</li>
+        <li>Designed responsive frontend interfaces using HTML, CSS, JavaScript</li>
+        <li>Built backend functionality with PHP, MySQL, Laravel</li>
+        <li>Collaborated with clients and project teams to meet requirements</li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="content-section" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4">Education</h2>
+      <h3 class="font-semibold">Bachelor of Science in Information Technology</h3>
+      <p>Sibonga Community College – Graduated 2023</p>
+      <ul class="list-disc ml-6 mt-2 space-y-1">
+        <li>Specialized in Web Development and Database Systems</li>
+        <li>Capstone Project: Web-based Sales & Inventory System</li>
+        <li>Dean’s Lister – multiple semesters</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- JavaScript -->
   <script>
-  AOS.init({ duration: 800, once: true });
+    // Section toggling
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+      document.getElementById('menu').classList.remove('show'); // Close menu after click
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
+    // Hamburger menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
 
-  // toggle menu
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  });
+    // Initialize AOS animations
+    AOS.init({ duration: 1000 });
 
-  function showSection(sectionId) {
-    // hide all sections
-    document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden-section'));
-
-    // show only clicked section
-    document.getElementById(sectionId).classList.remove('hidden-section');
-
-    // scroll top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // close menu on mobile
-    menu.classList.remove('show');
-  }
-
-  // Show projects by number
-  function showProject(num) {
-    document.querySelectorAll('.project-desc').forEach(desc => desc.classList.add('hidden-section'));
-    document.getElementById('project' + num).classList.remove('hidden-section');
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
-
-
+    // Drag & drop skills icons
+    const icons = document.querySelectorAll('.skill-icon');
+    icons.forEach(icon => {
+      icon.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('text/plain', null);
+      });
+    });
+  </script>
 </body>
 </html>
