@@ -14,29 +14,41 @@
     .active { display: block; }
     .skill-icon { width: 50px; height: 50px; }
     /* Hamburger Menu */
-    #menu-toggle:checked + #menu { display: block; }
-    #menu { display: none; }
+    #menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: #1f1f1f;
+      border-radius: 5px;
+      flex-direction: column;
+      min-width: 150px;
+      z-index: 50;
+    }
+    #menu button {
+      width: 100%;
+      text-align: left;
+    }
   </style>
 </head>
 <body class="font-sans">
 
   <!-- Header -->
-  <header class="flex items-center justify-between p-6">
+  <header class="flex items-center justify-between p-6 relative">
     <div class="text-2xl font-bold">MY PORTFOLIO</div>
 
     <!-- Hamburger Menu -->
     <div class="relative">
-      <input type="checkbox" id="menu-toggle" class="hidden">
-      <label for="menu-toggle" class="cursor-pointer space-y-1">
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-      </label>
-      <nav id="menu" class="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex flex-col">
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
+      <button id="hamburger" class="flex flex-col gap-1 w-6 h-6 cursor-pointer">
+        <span class="block h-0.5 bg-white"></span>
+        <span class="block h-0.5 bg-white"></span>
+        <span class="block h-0.5 bg-white"></span>
+      </button>
+      <nav id="menu" class="flex flex-col mt-2 bg-gray-800 rounded shadow-lg">
+        <button class="px-4 py-2 hover:bg-yellow-500" onclick="showSection('about')">About Me</button>
+        <button class="px-4 py-2 hover:bg-yellow-500" onclick="showSection('projects')">Projects</button>
+        <button class="px-4 py-2 hover:bg-yellow-500" onclick="showSection('skills')">Skills</button>
+        <button class="px-4 py-2 hover:bg-yellow-500" onclick="showSection('experience')">Experience</button>
       </nav>
     </div>
   </header>
@@ -45,7 +57,7 @@
   <section class="flex flex-col md:flex-row items-center justify-center h-screen p-6 gap-8">
     <!-- Left: Profile Picture -->
     <div class="flex-shrink-0">
-      <img src="images/angelprofile.JPG" alt="Angel Mae Unabia" class="w-64 h-64 rounded-full border-4 border-yellow-400 shadow-lg">
+      <img src="images/angelprofile.JPG" alt="Angel Mae Unabia" class="w-64 h-64 border-4 border-yellow-400 shadow-lg">
     </div>
 
     <!-- Right: Name & Title -->
@@ -73,17 +85,14 @@
         <div>
           <h3 class="font-semibold text-xl mb-2">Dianes Seafood House - Sales & Inventory System</h3>
           <img src="images/project1.png" alt="Dianes Seafood House Screenshot" class="rounded shadow-md w-full">
-          <p class="mt-2">Web-based system to manage sales, inventory, and generate reports efficiently.</p>
         </div>
         <div>
           <h3 class="font-semibold text-xl mb-2">Sibonga NHS Library Management System</h3>
           <img src="images/project2.png" alt="Sibonga NHS Library Screenshot" class="rounded shadow-md w-full">
-          <p class="mt-2">Developed a library system to manage books, borrowers, and reports.</p>
         </div>
         <div>
           <h3 class="font-semibold text-xl mb-2">Enhancing Water Billing Information System for Guimbaliwan Association</h3>
           <img src="images/project3.png" alt="Water Billing System Screenshot" class="rounded shadow-md w-full">
-          <p class="mt-2">Improved billing system for better record management and reporting.</p>
         </div>
       </div>
     </section>
@@ -130,7 +139,6 @@
     <!-- Experience -->
     <section id="experience" class="content-section p-6 bg-gray-900 rounded shadow-md mt-6">
       <h2 class="text-3xl font-bold mb-4">Experience</h2>
-      
       <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
       <ul class="list-disc ml-6 mt-1 space-y-1">
         <li>Provided technical support for PC and printer troubleshooting</li>
@@ -154,15 +162,21 @@
 
   </main>
 
-  <!-- JavaScript -->
   <script>
+    // Toggle menu visibility
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Show section
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
       sections.forEach(section => section.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      // Hide menu after click
-      document.getElementById('menu-toggle').checked = false;
+      menu.style.display = 'none'; // hide menu after click
     }
   </script>
 </body>
