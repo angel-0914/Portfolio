@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Mae Unabia - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .content-section {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+    }
+    .menu-btn:hover {
+      background-color: #fbbf24;
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md p-4 sticky top-0 z-10">
+    <h1 class="text-3xl font-bold text-gray-800">Angel Mae Unabia</h1>
+    <p class="text-gray-600">Passionate Web Developer</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="bg-gray-200 p-4 flex gap-4 justify-center">
+    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('about')">About Me</button>
+    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('projects')">Projects</button>
+    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('skills')">Skills</button>
+    <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('experience')">Experience</button>
+  </nav>
+
+  <!-- Sections -->
+  <main class="max-w-5xl mx-auto p-6">
+    
+    <!-- About Me -->
+    <section id="about" class="content-section active bg-white p-6 rounded shadow-md">
+      <h2 class="text-2xl font-bold mb-4">About Me</h2>
+      <p>I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. My specialization includes database design, backend development, and full-stack web applications.</p>
+      <p class="mt-2">I am passionate about building efficient and user-friendly systems that solve real business problems, improve productivity, and create value for organizations.</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="content-section bg-white p-6 rounded shadow-md">
+      <h2 class="text-2xl font-bold mb-4">Projects</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li><strong>Dianes Seafood House - Sales & Inventory System:</strong> Web-based system to manage sales, inventory, and generate reports efficiently.</li>
+        <li><strong>Sibonga NHS Library Management System:</strong> Developed a library system to manage books, borrowers, and reports.</li>
+        <li><strong>Enhancing Water Billing Information System for Guimbaliwan Association:</strong> Improved billing system for better record management and reporting.</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="content-section bg-white p-6 rounded shadow-md">
+      <h2 class="text-2xl font-bold mb-4">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/color/48/000000/php.png" alt="PHP" class="skill-icon mb-2">
+          <span>PHP</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/color/48/000000/laravel.png" alt="Laravel" class="skill-icon mb-2">
+          <span>Laravel</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL" class="skill-icon mb-2">
+          <span>MySQL</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" class="skill-icon mb-2">
+          <span>HTML</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" class="skill-icon mb-2">
+          <span>CSS / Tailwind</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" class="skill-icon mb-2">
+          <span>JavaScript</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/ios-glyphs/48/000000/github.png" alt="GitHub" class="skill-icon mb-2">
+          <span>GitHub</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://img.icons8.com/color/48/000000/api-settings.png" alt="API Integration" class="skill-icon mb-2">
+          <span>API Integration</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="content-section bg-white p-6 rounded shadow-md">
+      <h2 class="text-2xl font-bold mb-4">Experience</h2>
+      
+      <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
+      <ul class="list-disc ml-6 mt-1 space-y-1">
+        <li>Provided technical support for PC and printer troubleshooting</li>
+        <li>Assisted in encoding and managing school documents & configured and maintained LAN connections</li>
+        <li>Document filing and records organization (physical and digital)</li>
+        <li>Handled confidential and academic documents with accuracy</li>
+        <li>Supported software and system installation and updates</li>
+        <li>Developed Library Management System as part of project contribution</li>
+        <li>Handled inventory of IT equipment and recorded asset movements</li>
+      </ul>
+
+      <h3 class="font-semibold mt-4">Freelance Web Developer / Capstone Project (2021-current)</h3>
+      <ul class="list-disc ml-6 mt-1 space-y-1">
+        <li>Developed and deployed web systems</li>
+        <li>Designed and implemented responsive frontend interfaces using HTML, CSS, JavaScript</li>
+        <li>Built and maintained backend functionality using PHP, MySQL, API integration, Laravel</li>
+        <li>Collaborated with clients and project teams to meet requirements and deadlines</li>
+        <li>Managed full project lifecycle from planning to deployment</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
+
