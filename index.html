@@ -70,6 +70,24 @@
   .project-btn:hover { background-color: #facc15; color: black; }
 
   .project-desc { display: none; margin-top: 1rem; }
+
+  #menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 250px;
+  height: 100vh;
+  background-color: #1f1f1f;
+  flex-direction: column;
+  padding-top: 6rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 50;
+}
+#menu.show {
+  right: 0;
+}
+
 </style>
 </head>
 <body>
@@ -239,6 +257,40 @@
     document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
   }
 </script>
+
+  <script>
+  AOS.init({ duration: 800, once: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+
+  // toggle menu
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+
+  function showSection(sectionId) {
+    // hide all sections
+    document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden-section'));
+
+    // show only clicked section
+    document.getElementById(sectionId).classList.remove('hidden-section');
+
+    // scroll top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // close menu on mobile
+    menu.classList.remove('show');
+  }
+
+  // Show projects by number
+  function showProject(num) {
+    document.querySelectorAll('.project-desc').forEach(desc => desc.classList.add('hidden-section'));
+    document.getElementById('project' + num).classList.remove('hidden-section');
+    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
 
 </body>
 </html>
