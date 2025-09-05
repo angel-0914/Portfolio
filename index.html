@@ -20,6 +20,7 @@
     object-fit: cover;
     display: block;
     margin: 0 auto;
+    transition: transform 0.2s ease-out;
   }
   .skill-icon { width: 50px; height: 50px; }
 
@@ -52,7 +53,6 @@
   .project-btn:hover { background-color: #facc15; color: black; }
 
   .project-desc { display: none; margin-top: 1rem; }
-
   button { outline: none; }
 </style>
 </head>
@@ -84,11 +84,13 @@
 
 <!-- Hero Section -->
 <section class="flex flex-col items-center justify-center h-screen gap-4" data-aos="fade-up">
-  <img src="images/profile.png" alt="Angel Mae Unabia" class="profile-pic" data-aos="fade-right">
+  <img src="images/profile.png" alt="Angel Mae Unabia" class="profile-pic" id="profilePic" data-aos="fade-right">
   <p class="text-xl" data-aos="fade-left">Hello, I am</p>
   <h1 class="text-5xl font-bold text-center" data-aos="fade-left">Angel Mae <br> Unabia</h1>
   <p class="text-2xl mt-2 text-yellow-400" data-aos="fade-left">Web Developer</p>
-  <p class="mt-2 text-lg text-gray-300 text-center" data-aos="fade-left">Passionate about coding and developing web systems that provide real solutions.</p>
+  <p class="mt-2 text-lg text-gray-300 text-center" data-aos="fade-left">
+    Passionate about coding and developing web systems that provide real solutions.
+  </p>
 </section>
 
 <!-- Main Content -->
@@ -160,24 +162,31 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-  AOS.init({ duration: 800, once: true });
+AOS.init({ duration: 800, once: true });
 
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-  hamburger.addEventListener('click', () => menu.classList.toggle('show'));
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+hamburger.addEventListener('click', () => menu.classList.toggle('show'));
 
-  function showSection(id) {
-    document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden-section'));
-    document.getElementById(id).classList.remove('hidden-section');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    menu.classList.remove('show');
-  }
+function showSection(id) {
+  document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden-section'));
+  document.getElementById(id).classList.remove('hidden-section');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  menu.classList.remove('show');
+}
 
-  function showProject(num) {
-    document.querySelectorAll('.project-desc').forEach(desc => desc.style.display = 'none');
-    document.getElementById('project' + num).style.display = 'block';
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-  }
+function showProject(num) {
+  document.querySelectorAll('.project-desc').forEach(desc => desc.style.display = 'none');
+  document.getElementById('project' + num).style.display = 'block';
+  document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Floating & zoom animation for profile pic
+window.addEventListener('scroll', () => {
+  const pic = document.getElementById('profilePic');
+  const offset = window.scrollY;
+  pic.style.transform = `translateY(${offset * 0.05}px) scale(${1 + offset * 0.0005})`;
+});
 </script>
 
 </body>
