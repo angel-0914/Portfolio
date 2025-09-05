@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angel Mae Unabia - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Animation Library -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <style>
     body {
       background: linear-gradient(135deg, #000000, #1a1a1a);
       color: white;
     }
-
     .skill-icon { width: 50px; height: 50px; }
 
-    /* Mobile slide-in menu */
+    /* Slide-in menu drawer */
     #menu {
       position: fixed;
       top: 0;
@@ -29,6 +29,15 @@
       z-index: 50;
     }
     #menu.show { right: 0; }
+
+    /* Section hidden by default for menu click */
+    .hidden-section { display: none; }
+
+    /* Optional highlight for clicked section */
+    .highlighted {
+      outline: 2px solid yellow;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body class="font-sans">
@@ -46,25 +55,25 @@
 
     <!-- Desktop Menu -->
     <nav class="hidden md:flex gap-6">
-      <button class="hover:text-yellow-500" onclick="scrollToSection('about')">About Me</button>
-      <button class="hover:text-yellow-500" onclick="scrollToSection('projects')">Projects</button>
-      <button class="hover:text-yellow-500" onclick="scrollToSection('skills')">Skills</button>
-      <button class="hover:text-yellow-500" onclick="scrollToSection('experience')">Experience</button>
+      <button class="hover:text-yellow-500" onclick="showSection('about')">About Me</button>
+      <button class="hover:text-yellow-500" onclick="showSection('projects')">Projects</button>
+      <button class="hover:text-yellow-500" onclick="showSection('skills')">Skills</button>
+      <button class="hover:text-yellow-500" onclick="showSection('experience')">Experience</button>
     </nav>
   </header>
 
   <!-- Mobile Slide-in Menu -->
   <nav id="menu" class="flex flex-col space-y-4 px-4 md:hidden">
-    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="scrollToSection('about')">About Me</button>
-    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="scrollToSection('projects')">Projects</button>
-    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="scrollToSection('skills')">Skills</button>
-    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="scrollToSection('experience')">Experience</button>
+    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
+    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
+    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
+    <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
   </nav>
 
   <!-- Hero Section -->
   <section class="flex flex-col md:flex-row items-center justify-center h-screen p-6 gap-8">
     <!-- Profile Picture -->
-    <img src="images/profile.png" alt="Angel Mae Unabia" class="w-64 h-64" data-aos="zoom-in">
+    <img src="images/profile.png" alt="Angel Mae Unabia" class="w-64 h-64" data-aos="fade-right">
 
     <!-- Name & Title -->
     <div class="text-center md:text-left space-y-2" data-aos="fade-left">
@@ -74,12 +83,13 @@
     </div>
   </section>
 
+  <!-- Main Content -->
   <main class="max-w-5xl mx-auto p-6 space-y-6">
 
     <!-- About Me -->
     <section id="about" class="p-6 bg-gray-900 rounded shadow-md" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">About Me</h2>
-      <p>I am a BSIT graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. I specialize in database design, backend development, and full-stack applications.</p>
+      <p>I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. My specialization includes database design, backend development, and full-stack web applications.</p>
       <p class="mt-2">I am passionate about building efficient and user-friendly systems that solve real business problems, improve productivity, and create value for organizations.</p>
     </section>
 
@@ -96,7 +106,7 @@
           <img src="images/project2.png" alt="Sibonga NHS Library Screenshot" class="w-full">
         </div>
         <div data-aos="fade-up">
-          <h3 class="font-semibold text-xl mb-2">Enhancing Water Billing System</h3>
+          <h3 class="font-semibold text-xl mb-2">Enhancing Water Billing Information System for Guimbaliwan Association</h3>
           <img src="images/project3.png" alt="Water Billing System Screenshot" class="w-full">
         </div>
       </div>
@@ -107,35 +117,35 @@
       <h2 class="text-3xl font-bold mb-4">Skills</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/php.png" alt="PHP" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/color/48/000000/php.png" alt="PHP" class="skill-icon mb-2">
           <span>PHP</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/laravel.png" alt="Laravel" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/color/48/000000/laravel.png" alt="Laravel" class="skill-icon mb-2">
           <span>Laravel</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL" class="skill-icon mb-2">
           <span>MySQL</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" class="skill-icon mb-2">
           <span>HTML</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" class="skill-icon mb-2">
           <span>CSS / Tailwind</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" class="skill-icon mb-2">
           <span>JavaScript</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/ios-glyphs/48/000000/github.png" alt="GitHub" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/ios-glyphs/48/000000/github.png" alt="GitHub" class="skill-icon mb-2">
           <span>GitHub</span>
         </div>
         <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/000000/api-settings.png" alt="API Integration" class="skill-icon mb-2" data-aos="flip-left">
+          <img src="https://img.icons8.com/color/48/000000/api-settings.png" alt="API Integration" class="skill-icon mb-2">
           <span>API Integration</span>
         </div>
       </div>
@@ -147,19 +157,20 @@
       <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
       <ul class="list-disc ml-6 mt-1 space-y-1">
         <li>Provided technical support for PC and printer troubleshooting</li>
-        <li>Assisted in encoding and managing school documents & configured LAN connections</li>
+        <li>Assisted in encoding and managing school documents & configured and maintained LAN connections</li>
         <li>Document filing and records organization (physical and digital)</li>
         <li>Handled confidential and academic documents with accuracy</li>
         <li>Supported software and system installation and updates</li>
         <li>Developed Library Management System as part of project contribution</li>
         <li>Handled inventory of IT equipment and recorded asset movements</li>
       </ul>
+
       <h3 class="font-semibold mt-4">Freelance Web Developer / Capstone Project (2021-current)</h3>
       <ul class="list-disc ml-6 mt-1 space-y-1">
         <li>Developed and deployed web systems</li>
-        <li>Implemented responsive frontend interfaces using HTML, CSS, JavaScript</li>
-        <li>Built and maintained backend using PHP, MySQL, API integration, Laravel</li>
-        <li>Collaborated with clients and teams to meet requirements</li>
+        <li>Designed and implemented responsive frontend interfaces using HTML, CSS, JavaScript</li>
+        <li>Built and maintained backend functionality using PHP, MySQL, API integration, Laravel</li>
+        <li>Collaborated with clients and project teams to meet requirements and deadlines</li>
         <li>Managed full project lifecycle from planning to deployment</li>
       </ul>
     </section>
@@ -178,11 +189,14 @@
       menu.classList.toggle('show');
     });
 
-    function scrollToSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-      menu.classList.remove('show'); // hide menu on mobile
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden-section'));
+      // Show only clicked section
+      document.getElementById(sectionId).classList.remove('hidden-section');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      menu.classList.remove('show'); // hide menu on mobile after click
     }
   </script>
-
 </body>
 </html>
