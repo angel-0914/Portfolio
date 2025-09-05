@@ -7,77 +7,89 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .content-section {
-      display: none;
-    }
-    .active {
-      display: block;
-    }
-    .skill-icon {
-      width: 50px;
-      height: 50px;
-    }
-    .menu-btn:hover {
-      background-color: #fbbf24;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
       color: white;
     }
-    .overlay {
-      background: rgba(255, 255, 255, 0.95);
-    }
+    .content-section { display: none; }
+    .active { display: block; }
+    .skill-icon { width: 50px; height: 50px; }
+    /* Hamburger Menu */
+    #menu-toggle:checked + #menu { display: block; }
+    #menu { display: none; }
   </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="font-sans">
 
-  <!-- Hero Section -->
-  <header class="flex flex-col items-center justify-center h-screen text-center p-4">
-    <img src="images/angelprofile.JPG" alt="Angel Mae Unabia" class="w-48 h-48 rounded-full mb-4 border-4 border-yellow-400 shadow-lg">
-    <h1 class="text-5xl font-bold text-white drop-shadow-lg">Angel Mae Unabia</h1>
-    <p class="text-2xl text-white mt-2 drop-shadow-lg">Passionate Web Developer</p>
-    <div class="mt-6 flex gap-4">
-      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('about')">About Me</button>
-      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('projects')">Projects</button>
-      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('skills')">Skills</button>
-      <button class="menu-btn px-4 py-2 rounded bg-yellow-200" onclick="showSection('experience')">Experience</button>
+  <!-- Header -->
+  <header class="flex items-center justify-between p-6">
+    <div class="text-2xl font-bold">MY PORTFOLIO</div>
+
+    <!-- Hamburger Menu -->
+    <div class="relative">
+      <input type="checkbox" id="menu-toggle" class="hidden">
+      <label for="menu-toggle" class="cursor-pointer space-y-1">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </label>
+      <nav id="menu" class="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex flex-col">
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
+      </nav>
     </div>
   </header>
 
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center justify-center h-screen p-6 gap-8">
+    <!-- Left: Profile Picture -->
+    <div class="flex-shrink-0">
+      <img src="images/angelprofile.JPG" alt="Angel Mae Unabia" class="w-64 h-64 rounded-full border-4 border-yellow-400 shadow-lg">
+    </div>
+
+    <!-- Right: Name & Title -->
+    <div class="text-center md:text-left space-y-2">
+      <p class="text-xl">Hello, I am</p>
+      <h1 class="text-5xl font-bold">Angel Mae <br> Unabia</h1>
+      <p class="text-2xl mt-2 text-yellow-400">Web Developer</p>
+    </div>
+  </section>
+
   <!-- Main Content -->
-  <main class="max-w-5xl mx-auto p-6 overlay rounded-lg shadow-lg -mt-20 mb-10">
+  <main class="max-w-5xl mx-auto p-6">
 
     <!-- About Me -->
-    <section id="about" class="content-section active p-6">
+    <section id="about" class="content-section p-6 bg-gray-900 rounded shadow-md active">
       <h2 class="text-3xl font-bold mb-4">About Me</h2>
       <p>I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience in developing web-based systems such as sales and inventory, billing, and library management. My specialization includes database design, backend development, and full-stack web applications.</p>
       <p class="mt-2">I am passionate about building efficient and user-friendly systems that solve real business problems, improve productivity, and create value for organizations.</p>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="content-section p-6">
+    <section id="projects" class="content-section p-6 bg-gray-900 rounded shadow-md mt-6">
       <h2 class="text-3xl font-bold mb-4">Projects</h2>
       <div class="space-y-8">
         <div>
           <h3 class="font-semibold text-xl mb-2">Dianes Seafood House - Sales & Inventory System</h3>
-          <img src="PROJECT1_SCREENSHOT_URL" alt="Dianes Seafood House Screenshot" class="rounded shadow-md w-full">
+          <img src="images/project1.png" alt="Dianes Seafood House Screenshot" class="rounded shadow-md w-full">
           <p class="mt-2">Web-based system to manage sales, inventory, and generate reports efficiently.</p>
         </div>
         <div>
           <h3 class="font-semibold text-xl mb-2">Sibonga NHS Library Management System</h3>
-          <img src="PROJECT2_SCREENSHOT_URL" alt="Sibonga NHS Library Screenshot" class="rounded shadow-md w-full">
+          <img src="images/project2.png" alt="Sibonga NHS Library Screenshot" class="rounded shadow-md w-full">
           <p class="mt-2">Developed a library system to manage books, borrowers, and reports.</p>
         </div>
         <div>
           <h3 class="font-semibold text-xl mb-2">Enhancing Water Billing Information System for Guimbaliwan Association</h3>
-          <img src="PROJECT3_SCREENSHOT_URL" alt="Water Billing System Screenshot" class="rounded shadow-md w-full">
+          <img src="images/project3.png" alt="Water Billing System Screenshot" class="rounded shadow-md w-full">
           <p class="mt-2">Improved billing system for better record management and reporting.</p>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="content-section p-6">
+    <section id="skills" class="content-section p-6 bg-gray-900 rounded shadow-md mt-6">
       <h2 class="text-3xl font-bold mb-4">Skills</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center">
@@ -116,7 +128,7 @@
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="content-section p-6">
+    <section id="experience" class="content-section p-6 bg-gray-900 rounded shadow-md mt-6">
       <h2 class="text-3xl font-bold mb-4">Experience</h2>
       
       <h3 class="font-semibold mt-2">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
@@ -142,12 +154,15 @@
 
   </main>
 
+  <!-- JavaScript -->
   <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
       sections.forEach(section => section.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Hide menu after click
+      document.getElementById('menu-toggle').checked = false;
     }
   </script>
 </body>
