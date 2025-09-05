@@ -31,23 +31,21 @@
   <!-- Navbar -->
   <header class="flex justify-between items-center p-6 bg-black bg-opacity-60 fixed w-full top-0 z-50">
     <h1 class="text-xl font-bold">MY PORTFOLIO</h1>
-    <!-- Floating Hamburger Menu Button -->
-<button id="menu-btn" 
-  class="fixed bottom-6 right-6 flex flex-col space-y-1 bg-yellow-500 p-3 rounded-full shadow-lg z-50">
-  <span class="block w-6 h-0.5 bg-black"></span>
-  <span class="block w-6 h-0.5 bg-black"></span>
-  <span class="block w-6 h-0.5 bg-black"></span>
-</button>
-
-   
-<nav id="menu" class="fixed bottom-20 right-6 bg-gray-900 rounded-lg shadow-lg flex-col hidden z-50">
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('education')">Education</button>
-  <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('contact')">Contact Me</button>
-</nav>
+    <div class="relative">
+      <button id="menu-btn" class="flex flex-col space-y-1 cursor-pointer">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+      <nav id="menu" class="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex-col">
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('about')">About Me</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('projects')">Projects</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('skills')">Skills</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('experience')">Experience</button>
+        <button class="px-4 py-2 hover:bg-yellow-500 text-left" onclick="showSection('education')">Education</button>
+      </nav>
+    </div>
+  </header>
 
   </header>
 
