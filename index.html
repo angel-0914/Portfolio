@@ -97,14 +97,16 @@
 </section>
 
 <style>
-  /* About section with animated gradient background */
+  /* Import a modern font */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
   .about-section {
     padding: 80px 20px;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
     color: #fff;
-    font-weight: bold;
 
-    /* Animated light blue gradient */
+    /* Animated light blue gradient background */
     background: linear-gradient(270deg, #a8d8ff, #74c0fc, #4dabf7, #99e9f2);
     background-size: 600% 600%;
     animation: gradientMove 18s ease infinite;
@@ -117,9 +119,33 @@
   }
 
   .about-section h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 6px rgba(0,0,0,0.3);
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Stylish underline */
+  .about-section h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #ffeb3b;
+    border-radius: 2px;
+    animation: underlinePulse 2s infinite;
+  }
+
+  @keyframes underlinePulse {
+    0%, 100% { width: 60px; background: #ffeb3b; }
+    50% { width: 100px; background: #ffd60a; }
   }
 
   .about-section p {
@@ -143,8 +169,6 @@
     }
   }
 </style>
-
-
 
     <!-- Skills -->
 <section id="skills" class="content-section active-section p-8">
