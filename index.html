@@ -63,7 +63,6 @@
       </div>
     </section>
 
-
     <section id="about" class="content-section active-section p-8" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">About Me</h2>
       <p>
@@ -77,20 +76,57 @@
       </p>
     </section>
 
-     <!-- Skills -->
-    <section id="skills" class="content-section active-section p-8" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-6">Skills</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <img src="https://img.icons8.com/color/96/php.png" alt="PHP" class="mx-auto">
-        <img src="https://img.icons8.com/fluency/96/laravel.png" alt="Laravel" class="mx-auto">
-        <img src="https://img.icons8.com/color/96/mysql-logo.png" alt="MySQL" class="mx-auto">
-        <img src="https://img.icons8.com/color/96/html-5.png" alt="HTML" class="mx-auto">
-        <img src="https://img.icons8.com/color/96/css3.png" alt="CSS" class="mx-auto">
-        <img src="https://img.icons8.com/color/96/javascript.png" alt="JavaScript" class="mx-auto">
-        <img src="https://img.icons8.com/color/96/bootstrap.png" alt="Bootstrap" class="mx-auto">
-        <img src="https://img.icons8.com/color/96/github.png" alt="GitHub" class="mx-auto">
-      </div>
-    </section>
+    <!-- Skills -->
+<section id="skills" class="content-section active-section p-8">
+  <h2 class="text-3xl font-bold mb-6 text-center">Skills</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <img src="https://img.icons8.com/color/96/php.png" alt="PHP" class="mx-auto skill-icon">
+    <img src="https://img.icons8.com/fluency/96/laravel.png" alt="Laravel" class="mx-auto skill-icon">
+    <img src="https://img.icons8.com/color/96/mysql-logo.png" alt="MySQL" class="mx-auto skill-icon">
+    <img src="https://img.icons8.com/color/96/html-5.png" alt="HTML" class="mx-auto skill-icon">
+    <img src="https://img.icons8.com/color/96/css3.png" alt="CSS" class="mx-auto skill-icon">
+    <img src="https://img.icons8.com/color/96/javascript.png" alt="JavaScript" class="mx-auto skill-icon">
+    <img src="https://img.icons8.com/color/96/bootstrap.png" alt="Bootstrap" class="mx-auto skill-icon">
+    <img src="https://img.icons8.com/color/96/github.png" alt="GitHub" class="mx-auto skill-icon">
+  </div>
+</section>
+
+<style>
+/* Animation for skill icons */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(100px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.skill-icon {
+  opacity: 0;
+  animation: bounceIn 1s forwards;
+}
+
+/* Staggered animation delay */
+.skill-icon:nth-child(1) { animation-delay: 0.2s; }
+.skill-icon:nth-child(2) { animation-delay: 0.4s; }
+.skill-icon:nth-child(3) { animation-delay: 0.6s; }
+.skill-icon:nth-child(4) { animation-delay: 0.8s; }
+.skill-icon:nth-child(5) { animation-delay: 1s; }
+.skill-icon:nth-child(6) { animation-delay: 1.2s; }
+.skill-icon:nth-child(7) { animation-delay: 1.4s; }
+.skill-icon:nth-child(8) { animation-delay: 1.6s; }
+</style>
+
 
   
     <section id="projects" class="content-section active-section p-8" data-aos="fade-up">
