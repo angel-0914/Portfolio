@@ -407,12 +407,28 @@ lightbox.addEventListener('touchend', (e) => {
       </ul>
     </section>
 
-    <!-- Education -->
-    <section id="education" class="content-section active-section p-8" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-6">Education</h2>
+  <!-- Education -->
+<section id="education" class="content-section active-section p-8" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6" style="color: #fff; text-shadow: 2px 2px 6px rgba(0,0,0,0.5);">Education</h2>
+
+  <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+    <!-- Text -->
+    <div style="flex: 1; min-width: 250px; color: #fff;">
       <p><strong>Bachelor of Science in Information Technology major in Software Development</strong></p>
       <p>Sibonga Community College – (2025)</p>
-    </section>
+    </div>
+
+    <!-- Animated Picture -->
+    <div style="flex-shrink: 0;">
+      <img src="images/your-picture.jpg" alt="Your Photo" 
+           style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; 
+                  box-shadow: 0 8px 20px rgba(0,198,255,0.5);
+                  transition: transform 0.6s ease, box-shadow 0.6s ease;" 
+           onmouseover="this.style.transform='scale(1.1) rotate(3deg)'; this.style.boxShadow='0 12px 30px rgba(0,198,255,0.7)'"
+           onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 8px 20px rgba(0,198,255,0.5)'">
+    </div>
+  </div>
+</section>
 
 
     <section id="contact" class="content-section active-section p-8" data-aos="fade-up">
