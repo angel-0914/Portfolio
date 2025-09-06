@@ -191,34 +191,26 @@ skillIcons.forEach(icon => observer.observe(icon));
 </div>
 
 <!-- Overlay (Lightbox) -->
-<div id="lightbox" class="fixed inset-0 bg-white bg-opacity-95 hidden items-center justify-center z-50">
-  <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-3xl font-bold">&times;</button>
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+  <!-- Close Button -->
+  <button id="closeBtn" class="absolute top-5 right-5 text-white text-3xl font-bold z-50">
+    &times;
+  </button>
 
   <!-- Prev button -->
-  <button id="prevBtn" class="absolute left-5 text-white text-4xl font-bold px-4 py-2 hover:scale-125 transition">
+  <button id="prevBtn" class="absolute left-5 text-white text-4xl font-bold px-4 py-2 hover:scale-125 transition z-50">
     &#10094;
   </button>
 
   <!-- Next button -->
-  <button id="nextBtn" class="absolute right-5 text-white text-4xl font-bold px-4 py-2 hover:scale-125 transition">
+  <button id="nextBtn" class="absolute right-5 text-white text-4xl font-bold px-4 py-2 hover:scale-125 transition z-50">
     &#10095;
   </button>
 
+  <!-- Lightbox Image -->
   <img id="lightbox-img" src="" 
-       class="max-w-4xl w-full rounded-lg shadow-lg transform scale-95 opacity-0 transition-all duration-500">
+       class="max-w-4xl w-full rounded-lg shadow-lg transform scale-95 opacity-0 transition-all duration-500 relative z-40">
 </div>
-
-<style>
-/* Thumbnail hover animation */
-.screenshot {
-  cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.screenshot:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-</style>
 
 <script>
 const screenshots = document.querySelectorAll('.screenshot');
@@ -226,6 +218,7 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+const closeBtn = document.getElementById('closeBtn');
 
 let currentIndex = 0;
 
@@ -234,7 +227,6 @@ function openLightbox(index) {
   lightboxImg.src = screenshots[currentIndex].src;
   lightbox.classList.remove('hidden');
 
-  // Animate in
   setTimeout(() => {
     lightboxImg.classList.remove('scale-95', 'opacity-0');
     lightboxImg.classList.add('scale-100', 'opacity-100');
@@ -252,19 +244,18 @@ function closeLightbox() {
 
 function showNext() {
   currentIndex = (currentIndex + 1) % screenshots.length;
-  lightboxImg.classList.add('opacity-0', 'scale-95');
-  setTimeout(() => {
-    lightboxImg.src = screenshots[currentIndex].src;
-    lightboxImg.classList.remove('opacity-0', 'scale-95');
-    lightboxImg.classList.add('opacity-100', 'scale-100');
-  }, 300);
+  animateImage(screenshots[currentIndex].src);
 }
 
 function showPrev() {
   currentIndex = (currentIndex - 1 + screenshots.length) % screenshots.length;
+  animateImage(screenshots[currentIndex].src);
+}
+
+function animateImage(src) {
   lightboxImg.classList.add('opacity-0', 'scale-95');
   setTimeout(() => {
-    lightboxImg.src = screenshots[currentIndex].src;
+    lightboxImg.src = src;
     lightboxImg.classList.remove('opacity-0', 'scale-95');
     lightboxImg.classList.add('opacity-100', 'scale-100');
   }, 300);
@@ -276,8 +267,16 @@ screenshots.forEach((img, index) => {
 });
 nextBtn.addEventListener('click', showNext);
 prevBtn.addEventListener('click', showPrev);
+closeBtn.addEventListener('click', closeLightbox);
 
-// Keyboard navigation
+// Close when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+// Keyboard support
 document.addEventListener('keydown', (e) => {
   if (!lightbox.classList.contains('hidden')) {
     if (e.key === 'ArrowRight') showNext();
@@ -285,7 +284,28 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
   }
 });
+
+// --- Swipe Support (Mobile) ---
+let startX = 0;
+
+lightbox.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener('touchend', (e) => {
+  let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
+
+  if (Math.abs(diff) > 50) { // Minimum swipe distance
+    if (diff > 0) {
+      showNext(); // Swipe left → Next
+    } else {
+      showPrev(); // Swipe right → Prev
+    }
+  }
+});
 </script>
+
 
       </div>
     </div>
