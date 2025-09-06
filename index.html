@@ -165,9 +165,9 @@ skillIcons.forEach(icon => observer.observe(icon));
                justify-content: center; font-weight: bold; font-size: 18px; 
                box-shadow: 0 0 10px rgba(0,198,255,0.5);">
     3
-  </span>
-  Projects Developed
 
+  Projects Developed
+  </span>
 </h2>
 
   <div class="space-y-4">
@@ -418,7 +418,11 @@ lightbox.addEventListener('touchend', (e) => {
   <!-- Education -->
 <section id="education" class="content-section active-section p-8" data-aos="fade-up">
   <h2 class="text-3xl font-bold mb-6" style="color: #fff; text-shadow: 2px 2px 6px rgba(0,0,0,0.5);">Education</h2>
- <!-- Animated Picture -->
+
+  <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+    <!-- Text -->
+    <div style="flex: 1; min-width: 250px; color: #fff;">
+       <!-- Animated Picture -->
     <div style="flex-shrink: 0;">
       <img src="images/educationphoto.JPG" alt="Your Photo" 
            style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; 
@@ -427,9 +431,6 @@ lightbox.addEventListener('touchend', (e) => {
            onmouseover="this.style.transform='scale(1.1) rotate(3deg)'; this.style.boxShadow='0 12px 30px rgba(0,198,255,0.7)'"
            onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 8px 20px rgba(0,198,255,0.5)'">
     </div>
-  <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-    <!-- Text -->
-    <div style="flex: 1; min-width: 250px; color: #fff;">
       <p><strong>Bachelor of Science in Information Technology major in Software Development</strong></p>
       <p>Sibonga Community College – (2025)</p>
     </div>
