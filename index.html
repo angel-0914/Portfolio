@@ -8,39 +8,25 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
    body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-  /* Smooth animated gradient background */
-  background: linear-gradient(-45deg, #0f2027, #1a1a1a, #2c5364, #000000);
-  background-size: 400% 400%;
-  animation: gradientFlow 15s ease infinite;
-  position: relative;
-  overflow: hidden;
-}
+      /* Animated gradient background */
+      background: linear-gradient(-45deg, #0f2027, #1a1a1a, #2c5364, #000000);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      overflow: hidden;
+    }
 
-/* Gradient animation */
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Subtle overlay for professional look */
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 60%),
-              radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 60%);
-  pointer-events: none;
-}
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
     /* Floating profile pic */
     .floating {
