@@ -184,13 +184,61 @@ skillIcons.forEach(icon => observer.observe(icon));
                 class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded">
           See More
         </button>
-        <div id="salesScreenshots" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <img src="images/project1-1.png" class="rounded shadow-md w-full">
-          <img src="images/project1-2.png" class="rounded shadow-md w-full">
-          <img src="images/project1-3.png" class="rounded shadow-md w-full">
-          <img src="images/project1-4.png" class="rounded shadow-md w-full">
-          <img src="images/project1-5.png" class="rounded shadow-md w-full">
-        </div>
+       <!-- Screenshots Grid -->
+<div id="salesScreenshots" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+  <img src="images/project1-1.png" class="rounded shadow-md w-full screenshot">
+  <img src="images/project1-2.png" class="rounded shadow-md w-full screenshot">
+  <img src="images/project1-3.png" class="rounded shadow-md w-full screenshot">
+  <img src="images/project1-4.png" class="rounded shadow-md w-full screenshot">
+  <img src="images/project1-5.png" class="rounded shadow-md w-full screenshot">
+</div>
+
+<!-- Overlay (hidden by default) -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+  <img id="lightbox-img" src="" class="max-w-4xl w-full rounded-lg shadow-lg transform scale-95 opacity-0 transition-all duration-500">
+  <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-3xl font-bold">&times;</button>
+</div>
+
+<style>
+/* Click animation like Tesla landing */
+.screenshot {
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.screenshot:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+</style>
+
+<script>
+const screenshots = document.querySelectorAll('.screenshot');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+screenshots.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.remove('hidden');
+
+    // Animate image in (like Tesla motion)
+    setTimeout(() => {
+      lightboxImg.classList.remove('scale-95', 'opacity-0');
+      lightboxImg.classList.add('scale-100', 'opacity-100');
+    }, 10);
+  });
+});
+
+function closeLightbox() {
+  lightboxImg.classList.remove('scale-100', 'opacity-100');
+  lightboxImg.classList.add('scale-95', 'opacity-0');
+
+  setTimeout(() => {
+    lightbox.classList.add('hidden');
+  }, 500); // match transition duration
+}
+</script>
+
       </div>
     </div>
 
