@@ -83,18 +83,78 @@
       </div>
     </section>
 
-    <section id="about" class="content-section active-section p-8" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">About Me</h2>
-      <p>
-        I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience 
-        in developing web-based systems such as sales and inventory, billing, and library management. 
-        My specialization includes database design, backend development, and full-stack web applications.
-      </p>
-      <p class="mt-4">
-        I am passionate about building efficient and user-friendly systems that solve real business problems, 
-        improve productivity, and create value for organizations.
-      </p>
-    </section>
+    <section id="about" class="about-section">
+  <div class="content">
+    <h2>About Me</h2>
+    <p>
+      I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience 
+      in developing web-based systems such as sales and inventory, billing, and library management. 
+      My specialization includes database design, backend development, and full-stack web applications.
+    </p>
+    <p>
+      I am passionate about building efficient and user-friendly systems that solve real business problems, 
+      improve productivity, and create value for organizations.
+    </p>
+  </div>
+</section>
+
+<style>
+  /* About section */
+  .about-section {
+    position: relative;
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+
+    /* Animated gradient background */
+    background: linear-gradient(270deg, #a8d8ff, #74c0fc, #4dabf7, #99e9f2);
+    background-size: 600% 600%;
+    animation: gradientMove 18s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .about-section .content {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.4); /* dark overlay for readability */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+
+  .about-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.8);
+  }
+
+  .about-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #f8f9fa;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 60px 15px;
+    }
+    .about-section h2 {
+      font-size: 26px;
+    }
+    .about-section p {
+      font-size: 15px;
+    }
+  }
+</style>
+
 
     <!-- Skills -->
 <section id="skills" class="content-section active-section p-8">
