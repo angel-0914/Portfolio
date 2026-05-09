@@ -3,630 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Angel Mae Unabia - Portfolio</title>
+  <title>Angel Mae Portfolio</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
-  body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Dark Animated Gradient Background */
-  background: linear-gradient(-45deg, #000000, #0d0d0d, #1a1a1a, #000000);
-  background-size: 400% 400%;
-  animation: gradientMove 18s ease infinite;
-
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-/* Smooth Gradient Animation */
-@keyframes gradientMove {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-   
-    /* Floating profile pic */
-    .floating {
-      animation: float 4s ease-in-out infinite;
+    body {
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: white;
+      overflow-x: hidden;
     }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
+
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    /* Hide all content sections by default */
-    .content-section { display: none; }
-    .active-section { display: block; }
+
+    .nav-link {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #facc15;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
-<body class="overflow-x-hidden">
-  <header class="flex justify-between items-center p-6 bg-black bg-opacity-60 fixed w-full top-0 z-50">
-    <h1 class="text-xl font-bold">MY PORTFOLIO</h1>
-    <div class="relative">
-      <button id="menu-btn" class="flex flex-col space-y-1 cursor-pointer">
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-      </button>
-      <nav id="menu" class="hidden absolute right-0 mt-2 bg-gray-800 rounded shadow-lg flex-col">
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="home">Home</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="about">About Me</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="projects">Projects Developed</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="skills">Skills</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="experience">Experience</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="education">Education</button>
-        <button class="px-4 py-2 hover:bg-yellow-500 text-left menu-link" data-target="contact">Contact</button>
-      </nav>
-    </div>
-  </header>
 
+<body>
 
-  <main class="pt-24 space-y-16">
+<!-- NAVBAR -->
+<nav class="fixed w-full top-0 z-50 glass px-6 py-4 flex justify-between items-center">
+  <h1 class="font-bold text-lg text-yellow-400">Angel Mae</h1>
 
-    <section id="home" class="content-section active-section h-screen flex flex-col md:flex-row items-center justify-center p-6 gap-8">
-      <div data-aos="fade-right">
-        <img src="images/angelprofile.JPG" 
-             alt="Angel Mae Unabia" 
-             class="w-64 h-64 rounded-full object-cover shadow-lg floating">
-      </div>
-      <div class="text-center md:text-left space-y-2" data-aos="fade-left">
-        <p class="text-xl">Hello, I am</p>
-        <h1 class="text-5xl font-bold">Angel Mae <br> Unabia</h1>
-        <p class="text-2xl mt-2 text-yellow-400"> Web Developer</p>
-      </div>
-    </section>
-
-  <section id="about" class="about-section">
-  <h2>About Me</h2>
-  <p>
-    I am a Bachelor of Science in Information Technology (BSIT) graduate with hands-on experience 
-    in developing web-based systems such as sales and inventory, billing, and library management. 
-    My specialization includes database design, backend development, and full-stack web applications.
-  </p>
-  <p>
-    I am passionate about building efficient and user-friendly systems that solve real business problems, 
-    improve productivity, and create value for organizations.
-  </p>
-</section>
-
-<style>
-  /* Import a modern font */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-  .about-section {
-    padding: 80px 20px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-
-    /* Animated light blue gradient background */
-    background: linear-gradient(270deg, #a8d8ff, #74c0fc, #4dabf7, #99e9f2);
-    background-size: 600% 600%;
-    animation: gradientMove 18s ease infinite;
-  }
-
-  @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .about-section h2 {
-    font-size: 34px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  /* Stylish underline */
-  .about-section h2::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: #ffeb3b;
-    border-radius: 2px;
-    animation: underlinePulse 2s infinite;
-  }
-
-  @keyframes underlinePulse {
-    0%, 100% { width: 60px; background: #ffeb3b; }
-    50% { width: 100px; background: #ffd60a; }
-  }
-
-  .about-section p {
-    font-size: 16px;
-    line-height: 1.7;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
-    color: #f8f9fa;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .about-section {
-      padding: 60px 15px;
-    }
-    .about-section h2 {
-      font-size: 26px;
-    }
-    .about-section p {
-      font-size: 15px;
-    }
-  }
-</style>
-
-    <!-- Skills -->
-<section id="skills" class="content-section active-section p-8">
-  <h2 class="text-3xl font-bold mb-6 text-center">Skills</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-    <img src="https://img.icons8.com/color/96/php.png" alt="PHP" class="mx-auto skill-icon">
-    <img src="https://img.icons8.com/fluency/96/laravel.png" alt="Laravel" class="mx-auto skill-icon">
-    <img src="https://img.icons8.com/color/96/mysql-logo.png" alt="MySQL" class="mx-auto skill-icon">
-    <img src="https://img.icons8.com/color/96/html-5.png" alt="HTML" class="mx-auto skill-icon">
-    <img src="https://img.icons8.com/color/96/css3.png" alt="CSS" class="mx-auto skill-icon">
-    <img src="https://img.icons8.com/color/96/javascript.png" alt="JavaScript" class="mx-auto skill-icon">
-    <img src="https://img.icons8.com/color/96/bootstrap.png" alt="Bootstrap" class="mx-auto skill-icon">
-    <img src="https://img.icons8.com/color/96/github.png" alt="GitHub" class="mx-auto skill-icon">
+  <div class="hidden md:flex gap-6">
+    <span onclick="scrollToSection('home')" class="nav-link">Home</span>
+    <span onclick="scrollToSection('experience')" class="nav-link">Experience</span>
+    <span onclick="scrollToSection('skills')" class="nav-link">Skills</span>
+    <span onclick="scrollToSection('projects')" class="nav-link">Projects</span>
   </div>
-</section>
 
-<style>
-/* Bounce + fade animation */
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translateY(100px);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05) translateY(-10px);
-  }
-  70% {
-    transform: scale(0.95) translateY(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
+  <!-- Mobile Button -->
+  <button onclick="toggleMenu()" class="md:hidden text-xl">☰</button>
+</nav>
 
-.skill-icon {
-  opacity: 0;
-  transform: translateY(30px) scale(0.9);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.skill-icon.animate {
-  animation: bounceIn 1s forwards;
-}
-
-/* Staggered delays */
-.skill-icon:nth-child(1).animate { animation-delay: 0.2s; }
-.skill-icon:nth-child(2).animate { animation-delay: 0.4s; }
-.skill-icon:nth-child(3).animate { animation-delay: 0.6s; }
-.skill-icon:nth-child(4).animate { animation-delay: 0.8s; }
-.skill-icon:nth-child(5).animate { animation-delay: 1s; }
-.skill-icon:nth-child(6).animate { animation-delay: 1.2s; }
-.skill-icon:nth-child(7).animate { animation-delay: 1.4s; }
-.skill-icon:nth-child(8).animate { animation-delay: 1.6s; }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .skill-icon { width: 60px; height: 60px; }
-}
-@media (max-width: 480px) {
-  .skill-icon { width: 50px; height: 50px; }
-}
-</style>
-
-<script>
-// Observe each skill icon and trigger animation when visible
-const skillIcons = document.querySelectorAll('.skill-icon');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate');
-    } else {
-      entry.target.classList.remove('animate'); // re-trigger when scrolling back
-    }
-  });
-}, { threshold: 0.3 });
-
-skillIcons.forEach(icon => observer.observe(icon));
-</script>
-
-    <section id="projects" class="content-section active-section p-8" data-aos="fade-up">
-<h2 class="text-3xl font-bold mb-6" 
-    style="display: inline-flex; align-items: center; gap: 12px; white-space: nowrap;">
-  Projects Developed
-  <span style="width: 40px; height: 40px; border-radius: 50%; 
-               background: linear-gradient(45deg, #00c6ff, #ff6b6b); 
-               color: #fff; display: flex; align-items: center; justify-content: center;
-               font-weight: bold; font-size: 18px; line-height: 1;
-               box-shadow: 0 0 10px rgba(0,198,255,0.6);
-               animation: pulseGlow 2s infinite ease-in-out;">
-    3
-  </span>
-</h2>
-
-<style>
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 8px rgba(0,198,255,0.6), 0 0 15px rgba(255,107,107,0.5); }
-  50% { box-shadow: 0 0 15px rgba(0,198,255,0.9), 0 0 30px rgba(255,107,107,0.7); }
-  100% { box-shadow: 0 0 8px rgba(0,198,255,0.6), 0 0 15px rgba(255,107,107,0.5); }
-}
-</style>
-
-
-
-  <div class="space-y-4">
-
-    <!-- Project 1 -->
-    <div class="bg-gray-900 rounded-lg shadow-lg p-4">
-      <button onclick="toggleProject('project1')" class="flex items-center space-x-2 w-full text-left">
-        <img src="https://img.icons8.com/fluency/48/restaurant.png" class="w-8 h-8">
-        <h3 class="font-semibold text-xl">Dianes Seafood House - Sales & Inventory</h3>
-      </button>
-      
-      <div id="project1" class="hidden mt-3">
-        <img src="images/project1.png" class="rounded shadow-md w-full">
-        <p class="mt-2">Web-based system to manage sales, inventory, and generate reports efficiently.</p>
-        <ul class="list-disc ml-6 mt-2">
-          <li>Designed for dine-in and takeout operations</li>
-          <li>Includes cashier dashboard, sales reporting, and stock management</li>
-          <li>Features alert product expiration, low stock notifications</li>
-        </ul>
-         <p class="mt-4">
-    <span class="font-semibold">Tech Stack:</span> 
-    PHP, JavaScript, HTML, Tailwind, CSS, Bootstrap, jQuery, Laravel, MySQL, VS Code, GitHub, XAMPP
-  </p>
-        <!-- See More -->
-        <button onclick="toggleScreenshots('salesScreenshots')" 
-                class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded">
-          See More
-        </button>
-     <!-- Screenshots Grid -->
-<div id="salesScreenshots" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-  <img src="images/project1-1.png" class="rounded shadow-md w-full screenshot">
-  <img src="images/project1-2.png" class="rounded shadow-md w-full screenshot">
-  <img src="images/project1-3.png" class="rounded shadow-md w-full screenshot">
-  <img src="images/project1-4.png" class="rounded shadow-md w-full screenshot">
-  <img src="images/project1-5.png" class="rounded shadow-md w-full screenshot">
-</div>
-  
-<!-- Overlay (Lightbox) -->
-<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
-  <!-- Close Button -->
-  <button id="closeBtn" class="absolute top-5 right-5 text-white text-3xl font-bold z-50">
-    &times;
-  </button>
-
-  <!-- Prev button -->
-  <button id="prevBtn" class="absolute left-5 text-white text-4xl font-bold px-4 py-2 hover:scale-125 transition z-50">
-    &#10094;
-  </button>
-
-  <!-- Next button -->
-  <button id="nextBtn" class="absolute right-5 text-white text-4xl font-bold px-4 py-2 hover:scale-125 transition z-50">
-    &#10095;
-  </button>
-
-  <!-- Lightbox Image -->
-  <img id="lightbox-img" src="" 
-       class="max-w-4xl w-full rounded-lg shadow-lg transform scale-95 opacity-0 transition-all duration-500 relative z-40">
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden fixed top-16 w-full glass flex flex-col items-center py-5 space-y-4 md:hidden">
+  <span onclick="scrollToSection('home')" class="nav-link">Home</span>
+  <span onclick="scrollToSection('experience')" class="nav-link">Experience</span>
+  <span onclick="scrollToSection('skills')" class="nav-link">Skills</span>
+  <span onclick="scrollToSection('projects')" class="nav-link">Projects</span>
 </div>
 
+<!-- HERO -->
+<section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+  <h1 class="text-3xl sm:text-5xl font-bold mb-4">
+    Hi, I'm <span class="text-yellow-400">Angel Mae</span>
+  </h1>
+  <p class="text-gray-300 max-w-xl">
+    Web Developer & SEO Specialist passionate about building modern, optimized, and user-friendly systems.
+  </p>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience" class="px-4 sm:px-8 lg:px-16 py-10" data-aos="fade-up">
+  <h2 class="text-3xl sm:text-4xl font-bold mb-10 text-center text-yellow-400">
+    Experience
+  </h2>
+
+  <div class="relative border-l-2 sm:border-l-4 border-yellow-400 ml-3 sm:ml-6">
+
+    <!-- SEO -->
+    <div class="mb-10 ml-5 sm:ml-8">
+      <div class="absolute -left-3 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 bg-yellow-400 rounded-full border-2 sm:border-4 border-black"></div>
+
+      <div class="glass p-4 sm:p-6 rounded-xl shadow-lg">
+        <h3 class="text-lg sm:text-xl font-bold text-yellow-300">
+          SEO Specialist – Proweaver PH
+        </h3>
+        <span class="text-sm text-gray-300">(2024 - Present)</span>
+
+        <ul class="mt-3 list-disc ml-5 text-sm sm:text-base">
+          <li>Keyword research & ranking optimization</li>
+          <li>On-page & technical SEO implementation</li>
+          <li>Google Analytics & Search Console</li>
+          <li>Improved website performance & Core Web Vitals</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FREELANCE -->
+    <div class="mb-10 ml-5 sm:ml-8">
+      <div class="absolute -left-3 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 bg-blue-400 rounded-full border-2 sm:border-4 border-black"></div>
+
+      <div class="glass p-4 sm:p-6 rounded-xl shadow-lg">
+        <h3 class="text-lg sm:text-xl font-bold text-blue-300">
+          Web Developer / SEO Specialist
+        </h3>
+        <span class="text-sm text-gray-300">(2021 - Present)</span>
+
+        <ul class="mt-3 list-disc ml-5 text-sm sm:text-base">
+          <li>Developed responsive websites</li>
+          <li>Backend using PHP, Laravel & MySQL</li>
+          <li>SEO integration in development</li>
+          <li>Performance & UX optimization</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OJT -->
+    <div class="mb-10 ml-5 sm:ml-8">
+      <div class="absolute -left-3 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 bg-green-400 rounded-full border-2 sm:border-4 border-black"></div>
+
+      <div class="glass p-4 sm:p-6 rounded-xl shadow-lg">
+        <h3 class="text-lg sm:text-xl font-bold text-green-300">
+          IT Support / Web Developer – OJT
+        </h3>
+        <span class="text-sm text-gray-300">(6 months)</span>
+
+        <ul class="mt-3 list-disc ml-5 text-sm sm:text-base">
+          <li>PC & printer troubleshooting</li>
+          <li>LAN configuration</li>
+          <li>Library Management System development</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-10 px-6 text-center">
+  <h2 class="text-3xl font-bold text-yellow-400 mb-6">Skills</h2>
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+    <div class="glass p-3 rounded-lg">HTML</div>
+    <div class="glass p-3 rounded-lg">CSS</div>
+    <div class="glass p-3 rounded-lg">JavaScript</div>
+    <div class="glass p-3 rounded-lg">Tailwind</div>
+    <div class="glass p-3 rounded-lg">PHP</div>
+    <div class="glass p-3 rounded-lg">Laravel</div>
+    <div class="glass p-3 rounded-lg">MySQL</div>
+    <div class="glass p-3 rounded-lg">SEO</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-10 px-6 text-center">
+  <h2 class="text-3xl font-bold text-yellow-400 mb-6">Projects</h2>
+
+  <div class="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="glass p-6 rounded-xl">
+      <h3 class="font-bold text-lg">Water Billing System</h3>
+      <p class="text-gray-300 text-sm">PHP & MySQL system with billing tracking.</p>
+    </div>
+
+    <div class="glass p-6 rounded-xl">
+      <h3 class="font-bold text-lg">Sales & Inventory System</h3>
+      <p class="text-gray-300 text-sm">Restaurant system with POS & stock management.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 text-gray-400 text-sm">
+  © 2026 Angel Mae Portfolio
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-const screenshots = document.querySelectorAll('.screenshot');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const closeBtn = document.getElementById('closeBtn');
+  AOS.init();
 
-let currentIndex = 0;
-
-function openLightbox(index) {
-  currentIndex = index;
-  lightboxImg.src = screenshots[currentIndex].src;
-  lightbox.classList.remove('hidden');
-
-  setTimeout(() => {
-    lightboxImg.classList.remove('scale-95', 'opacity-0');
-    lightboxImg.classList.add('scale-100', 'opacity-100');
-  }, 10);
-}
-
-function closeLightbox() {
-  lightboxImg.classList.remove('scale-100', 'opacity-100');
-  lightboxImg.classList.add('scale-95', 'opacity-0');
-
-  setTimeout(() => {
-    lightbox.classList.add('hidden');
-  }, 500);
-}
-
-function showNext() {
-  currentIndex = (currentIndex + 1) % screenshots.length;
-  animateImage(screenshots[currentIndex].src);
-}
-
-function showPrev() {
-  currentIndex = (currentIndex - 1 + screenshots.length) % screenshots.length;
-  animateImage(screenshots[currentIndex].src);
-}
-
-function animateImage(src) {
-  lightboxImg.classList.add('opacity-0', 'scale-95');
-  setTimeout(() => {
-    lightboxImg.src = src;
-    lightboxImg.classList.remove('opacity-0', 'scale-95');
-    lightboxImg.classList.add('opacity-100', 'scale-100');
-  }, 300);
-}
-
-// Event listeners
-screenshots.forEach((img, index) => {
-  img.addEventListener('click', () => openLightbox(index));
-});
-nextBtn.addEventListener('click', showNext);
-prevBtn.addEventListener('click', showPrev);
-closeBtn.addEventListener('click', closeLightbox);
-
-// Close when clicking outside the image
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    closeLightbox();
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    document.getElementById("mobileMenu").classList.add("hidden");
   }
-});
 
-// Keyboard support
-document.addEventListener('keydown', (e) => {
-  if (!lightbox.classList.contains('hidden')) {
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-    if (e.key === 'Escape') closeLightbox();
+  function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("hidden");
   }
-});
-
-// --- Swipe Support (Mobile) ---
-let startX = 0;
-
-lightbox.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-});
-
-lightbox.addEventListener('touchend', (e) => {
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
-
-  if (Math.abs(diff) > 50) { // Minimum swipe distance
-    if (diff > 0) {
-      showNext(); // Swipe left → Next
-    } else {
-      showPrev(); // Swipe right → Prev
-    }
-  }
-});
 </script>
 
-
-      </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="bg-gray-900 rounded-lg shadow-lg p-4">
-      <button onclick="toggleProject('project2')" class="flex items-center space-x-2 w-full text-left">
-        <img src="https://img.icons8.com/color/48/books.png" class="w-8 h-8">
-        <h3 class="font-semibold text-xl">Sibonga NHS Library Management</h3>
-      </button>
-      <div id="project2" class="hidden mt-3">
-        <img src="images/project2.png" class="rounded shadow-md w-full">
-        <p class="mt-2">Developed a library system to manage books, borrowers, and reports.</p>
-        <ul class="list-disc ml-6 mt-2">
-          <li>A web-based system developed for Sibonga National High School</li>
-          <li>Manages book borrowing, returning and inventory</li>
-          <li>Due date and penalty alert notifications</li>
-        </ul>
-          <p class="mt-4">
-    <span class="font-semibold">Tech Stack:</span> 
-    PHP, JavaScript, HTML, Tailwind, CSS, Bootstrap, jQuery, Laravel, MySQL, VS Code, GitHub, XAMPP
-  </p>
-        <!-- See More -->
-        <button onclick="toggleScreenshots('libraryScreenshots')" 
-                class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded">
-          See More
-        </button>
-        <div id="libraryScreenshots" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <img src="images/project2-1.png" class="rounded shadow-md w-full">
-          <img src="images/project2-2.png" class="rounded shadow-md w-full">
-          <img src="images/project2-3.png" class="rounded shadow-md w-full">
-          <img src="images/project2-4.png" class="rounded shadow-md w-full">
-          <img src="images/project2-5.png" class="rounded shadow-md w-full">
-          <img src="images/project2-6.png" class="rounded shadow-md w-full">
-          <img src="images/project2-7.png" class="rounded shadow-md w-full">
-          <img src="images/project2-8.png" class="rounded shadow-md w-full">
-          <img src="images/project2-9.png" class="rounded shadow-md w-full">
-          <img src="images/project2-10.png" class="rounded shadow-md w-full">
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="bg-gray-900 rounded-lg shadow-lg p-4">
-      <button onclick="toggleProject('project3')" class="flex items-center space-x-2 w-full text-left">
-        <img src="https://img.icons8.com/fluency/48/water.png" class="w-8 h-8">
-        <h3 class="font-semibold text-xl">Water Billing System</h3>
-      </button>
-      <div id="project3" class="hidden mt-3">
-        <img src="images/project3.png" class="rounded shadow-md w-full">
-        <p class="mt-2">Improved billing system for better record management and reporting.</p>
-        <ul class="list-disc ml-6 mt-2">
-          <li>Automates water billing for a local community</li>
-          <li>Calculates monthly bills based on consumption</li>
-          <li>Features client database, notify payment reminders, due date notifications, and payment status tracking</li>
-        </ul>
-          <p class="mt-4">
-    <span class="font-semibold">Tech Stack:</span> 
-    PHP, JavaScript, HTML, Tailwind, CSS, Bootstrap, jQuery, Laravel, MySQL, VS Code, GitHub, XAMPP
-  </p>
-        <!-- See More -->
-        <button onclick="toggleScreenshots('billingScreenshots')" 
-                class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded">
-          See More
-        </button>
-        <div id="billingScreenshots" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <img src="images/project3-1.png" class="rounded shadow-md w-full">
-          <img src="images/project3-2.png" class="rounded shadow-md w-full">
-          <img src="images/project3-3.png" class="rounded shadow-md w-full">
-          <img src="images/project3-4.png" class="rounded shadow-md w-full">
-          <img src="images/project3-5.png" class="rounded shadow-md w-full">
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-   
-    
-    <section id="experience" class="content-section active-section p-8" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-6">Experience</h2>
-      <h3 class="text-xl font-bold">IT Support / Web Developer – OJT (6 months) @ Sibonga NHS</h3>
-      <ul class="list-disc ml-6 mb-6">
-        <li>Provided technical support for PC and printer troubleshooting</li>
-        <li>Assisted in encoding and managing school documents & configured and maintained LAN connections.</li>
-        <li>Document filing and records organization(physical & digital)</li>
-        <li>Handling confidential and academic documents with accuracy</li>
-        <li>Supported software and system installation updates</li>
-        <li>Developed Library Management System as project contribution</li>
-        <li>Handled inventoy of IT equipment and recorded asset movements</li>
-      </ul>
-      <h3 class="text-xl font-bold">Freelance Web Developer / Capstone Project (2021-current)</h3>
-      <ul class="list-disc ml-6">
-        <li>Developed and deployed web systems</li>
-        <li>Designed and implemented resonsive front-end interface using HTML, CSS, TAILWIND, and Javascript</li>
-        <li>Built and maintained backend functionality using PHP, MySQL, Laravel, and API integration, Laravel Framework</li>
-        <li>Collaborated with clients and project teams meet requirements and deadlines</li>
-        <li>Managed full project lifecycle from plannning to deployment</li>
-      </ul>
-    </section>
-
-  <!-- Education -->
-<section id="education" class="content-section active-section p-8" data-aos="fade-up">
-  <h2 class="text-3xl font-bold mb-6" style="color: #fff; text-shadow: 2px 2px 6px rgba(0,0,0,0.5);">Education</h2>
-
-  <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-    <!-- Text -->
-    <div style="flex: 1; min-width: 250px; color: #fff;">
-       <!-- Animated Picture -->
-    <div style="flex-shrink: 0;">
-      <img src="images/educationphoto.JPG" alt="Your Photo" 
-           style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; 
-                  box-shadow: 0 8px 20px rgba(0,198,255,0.5);
-                  transition: transform 0.6s ease, box-shadow 0.6s ease;" 
-           onmouseover="this.style.transform='scale(1.1) rotate(3deg)'; this.style.boxShadow='0 12px 30px rgba(0,198,255,0.7)'"
-           onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 8px 20px rgba(0,198,255,0.5)'">
-    </div>
-      <p><strong>Bachelor of Science in Information Technology major in Software Development</strong></p>
-      <p>Sibonga Community College – (2025)</p>
-    </div>
-
-  </div>
-</section>
-
-
-    <section id="contact" class="content-section active-section p-8" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">Contact Me</h2>
-      <p class="mb-4">You can reach me through:</p>
-      <div class="space-y-2">
-        <p><strong>Email:</strong> 
-          <a href="mailto:unabiaangelmaeg@gmail.com" class="text-yellow-400 hover:underline">
-            unabiaangelmaeg@gmail.com
-          </a>
-        </p>
-        <p><strong>Phone:</strong> +63 907 793 4408</p>
-        <p><strong>Location:</strong> Carcar City, Cebu, Philippines</p>
-      </div>
-      <div class="flex space-x-4 mt-4">
-        <a href="https://github.com/angel20014" target="_blank">
-          <img src="https://img.icons8.com/glyph-neue/48/github.png" class="w-8 h-8">
-        </a>
-        <a href="https://www.linkedin.com/in/angel-mae-g-unabia-201312374/" target="_blank">
-          <img src="https://img.icons8.com/fluency/48/linkedin.png" class="w-8 h-8">
-        </a>
-      </div>
-    </section>
-
-     <section class="p-8 text-center" data-aos="fade-up">
-      <p class="text-xl italic text-yellow-400">“Excited to contribute my skills and grow with your team.”</p>
-    </section>
-
-  </main>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-
-    const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    const links = document.querySelectorAll(".menu-link");
-    const sections = document.querySelectorAll(".content-section");
-
-    // toggle nav menu
-    menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-
-    // start with all sections visible
-    sections.forEach(section => section.classList.add("active-section"));
-
-    // when clicking menu → show only that section
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = link.getAttribute("data-target");
-
-        sections.forEach(section => section.classList.remove("active-section"));
-        document.getElementById(target).classList.add("active-section");
-
-        menu.classList.add("hidden");
-        document.getElementById(target).scrollIntoView({ behavior: "smooth" });
-      });
-    });
-
-    // toggle projects
-    function toggleProject(id) {
-      document.querySelectorAll('#projects div[id^="project"]').forEach(el => {
-        el.classList.add('hidden');
-      });
-      const project = document.getElementById(id);
-      if (project) project.classList.remove('hidden');
-    }
-
-    function toggleScreenshots(id) {
-  const gallery = document.getElementById(id);
-  gallery.classList.toggle("hidden");
-}
-
-  </script>
 </body>
 </html>
